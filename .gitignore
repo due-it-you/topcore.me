@@ -1,0 +1,12 @@
+.env
+.env.*
+
+.DS_Store
+*.log
+*.pid
+*.swp
+*.swo
+.byebug_history
+.idea/
+.vscode/
+

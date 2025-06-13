@@ -1,0 +1,21 @@
+# Rails-specific
+/log/*
+!/log/.keep
+/tmp
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/public/assets
+/public/packs
+/node_modules/
+.byebug_history
+.env*
+/config/master.key
+/config/credentials.yml.enc
+
+# Editor and system files
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/
