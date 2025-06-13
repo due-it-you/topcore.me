@@ -1,33 +1,48 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import js from "@eslint/js";
+import globals from "globals";
+import pluginReact from "eslint-plugin-react";
+import { defineConfig } from "eslint/config";
 
-export default [
-  { ignores: ['dist'] },
+export default defineConfig([
   {
-    files: ['**/*.{js,jsx}'],
+    files: ["**/*.{js,jsx}"],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: "latest",
+      sourceType: "module",
       globals: globals.browser,
       parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
-        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
+    eslintConfigPrettier,
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      js,
+      react: pluginReact,
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+      "better-tailwindcss": {
+        entryPoint: "src/App.css",
+      },
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      "no-unused-vars": "warn",
+      "no-undef": "warn",
+      "no-console": "error",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-boolean-value": "error",
+      "react/jsx-curly-brace-presence": "error",
     },
+    extends: [
+      "js/recommended",
+      pluginReact.configs.flat.recommended,
+    ],
   },
-]
+]);
+
+
