@@ -43,3 +43,5 @@ group :development, :test do
 end
 
 
+
+gem "solid_cache", "~> 1.0"

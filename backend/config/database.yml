@@ -24,10 +24,15 @@ default: &default
 
 
 development:
-  <<: *default
-  database: topcoreme_db
-  username: postgres
-  password: password
+  primary: &primary_development
+    <<: *default
+    database: topcoreme_development
+    username: postgres
+    password: password
+  cache:
+    <<: *primary_development
+    database: topcoreme_development_cache
+    migrations_paths: db/cache_migrate
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -84,7 +89,12 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: app_production
-  username: app
-  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+  primary: &primary_production
+    <<: *default
+    database: topcoreme_production
+    username: app
+    password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+  cache:
+    <<: *primary_production
+    database: topcoreme_production_cache
+    migrations_paths: db/cache_migrate
