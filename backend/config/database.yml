@@ -91,9 +91,10 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: topcoreme_production
-    username: app
+    database: <%= ENV["APP_DATABASE_NAME"] %>
+    username: <%= ENV["APP_DATABASE_USERNAME"] %>
     password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+    host: <%= ENV["APP_DATABASE_HOST"] %>
   cache:
     <<: *primary_production
     database: topcoreme_production_cache
