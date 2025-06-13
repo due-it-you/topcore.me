@@ -2,6 +2,7 @@ services:
   - type: web
     name: topcore-me-rails-api
     env: ruby
+    plan: free
     rootDir: backend
     buildCommand: ./bin/render-build.sh
     startCommand: bundle exec puma -C config/puma.rb config.ru
