@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "format": "npx prettier --write src",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
@@ -18,8 +19,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "@types/testing-library__user-event": "^4.2.0",
     "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
@@ -28,8 +33,10 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.2.0",
+    "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vitest": "^3.2.3"
   }
 }
