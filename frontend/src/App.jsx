@@ -32,6 +32,14 @@ function App() {
               <SearchedAlbum />
               <SearchedAlbum />
               <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
             </SearchResult>
           </AlbumSearchCard>
         </CreateGridBody>
