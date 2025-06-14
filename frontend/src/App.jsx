@@ -7,7 +7,6 @@ import SearchBar from './components/ui/album_search/SearchBar';
 import SearchResult from './components/ui/album_search/SearchResult';
 import SearchedAlbum from './components/ui/album_search/SearchedAlbum';
 import DropAlbumGrid from './components/ui/drop_album_grid/DropAlbumGrid';
-import Album from './components/ui/drop_album_grid/Album';
 
 function App() {
   return (
@@ -43,17 +42,7 @@ function App() {
               <SearchedAlbum />
             </SearchResult>
           </AlbumSearchCard>
-          <DropAlbumGrid>
-            <Album />
-            <Album />
-            <Album />
-            <Album />
-            <Album />
-            <Album />
-            <Album />
-            <Album />
-            <Album />
-          </DropAlbumGrid>
+          <DropAlbumGrid />
         </CreateGridBody>
       </Layout>
     </>
