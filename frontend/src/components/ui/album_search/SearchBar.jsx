@@ -11,7 +11,7 @@ export default function SearchBar() {
       <Button
         variant="secondary"
         size="icon"
-        className="mx-2 size-10 bg-[#252A30] hover:bg-[#1E2328]"
+        className="mx-2 size-10 border border-gray-200 bg-[#252A30] hover:bg-[#1E2328]"
       >
         🔍
       </Button>
