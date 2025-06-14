@@ -5,6 +5,7 @@ import Header from './components/common/Header';
 import AlbumSearchCard from './components/ui/album_search/AlbumSearchCard';
 import CreateGridBody from './components/layout/CreateGridBody';
 import SearchBar from './components/ui/album_search/SearchBar';
+import SearchResult from './components/ui/album_search/SearchResult';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <CreateGridBody>
           <AlbumSearchCard>
             <SearchBar />
+            <SearchResult>
+            </SearchResult>
           </AlbumSearchCard>
         </CreateGridBody>
       </Layout>
