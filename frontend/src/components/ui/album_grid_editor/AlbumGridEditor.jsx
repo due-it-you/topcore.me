@@ -3,7 +3,7 @@ import Album from './Album';
 import { Button } from '@/components/ui/button';
 
 
-export default function DropAlbumGrid() {
+export default function AlbumGridEditor() {
   return (
     <div className="flex h-screen w-3/5 items-center justify-center">
       <div className="mx-4 flex aspect-square w-3/4">

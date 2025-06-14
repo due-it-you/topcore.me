@@ -5,7 +5,7 @@ import AlbumSearchCard from './components/ui/album_search/AlbumSearchCard';
 import CreateGridBody from './components/layout/CreateGridBody';
 import SearchBar from './components/ui/album_search/SearchBar';
 import SearchResult from './components/ui/album_search/SearchResult';
-import DropAlbumGrid from './components/ui/drop_album_grid/DropAlbumGrid';
+import DropAlbumGrid from './components/ui/album_grid_editor/AlbumGridEditor';
 
 function App() {
   return (
