@@ -1,5 +1,5 @@
 import './App.css';
-import Layout from './components/Layout';
+import Layout from './components/layout/Layout';
 import Header from './components/Header';
 import AlbumSearchCard from './components/ui/album_search/AlbumSearchCard';
 import CreateGridBody from './components/layout/CreateGridBody';
