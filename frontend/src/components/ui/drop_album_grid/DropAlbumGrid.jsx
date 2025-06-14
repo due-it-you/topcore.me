@@ -1,5 +1,7 @@
 import ColorPalette from '../color_palette/ColorPalette';
 import Album from './Album';
+import { Button } from '@/components/ui/button';
+
 
 export default function DropAlbumGrid() {
   return (
@@ -16,6 +18,11 @@ export default function DropAlbumGrid() {
             <Album />
             <Album />
             <Album />
+          </div>
+          <div className="mt-4 text-right">
+            <Button className="bg-[#20C997] font-semibold text-white hover:bg-[#1CB588]">
+              リンクを生成
+            </Button>
           </div>
         </div>
         <div className="h-full w-1/4">
