@@ -6,6 +6,7 @@ import AlbumSearchCard from './components/ui/album_search/AlbumSearchCard';
 import CreateGridBody from './components/layout/CreateGridBody';
 import SearchBar from './components/ui/album_search/SearchBar';
 import SearchResult from './components/ui/album_search/SearchResult';
+import SearchedAlbum from './components/ui/album_search/SearchedAlbum';
 
 function App() {
   return (
@@ -16,6 +17,21 @@ function App() {
           <AlbumSearchCard>
             <SearchBar />
             <SearchResult>
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
+              <SearchedAlbum />
             </SearchResult>
           </AlbumSearchCard>
         </CreateGridBody>
