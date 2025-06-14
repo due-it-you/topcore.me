@@ -2,6 +2,7 @@ import ColorPalette from '../color_palette/ColorPalette';
 import Album from './Album';
 import { Button } from '@/components/ui/button';
 
+
 export default function DropAlbumGrid() {
   return (
     <div className="mt-12 flex h-screen w-3/5 items-center justify-center">
