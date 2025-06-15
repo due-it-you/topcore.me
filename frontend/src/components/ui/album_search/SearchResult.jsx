@@ -3,7 +3,7 @@ import SearchedAlbum from './SearchedAlbum';
 export default function SearchResult({ albums }) {
   return (
     <div className="h-7/8 overflow-y-scroll">
-      <div className="grid grid-cols-4 gap-1">
+      <div className="grid grid-cols-3 gap-1">
         {albums
           ? albums.map((album) => {
               return (
