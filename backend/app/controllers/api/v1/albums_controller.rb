@@ -13,7 +13,17 @@ class Api::V1::AlbumsController < ApplicationController
     search_words = URI.encode_www_form_component("椎名林檎")
     response = HTTP.headers("Authorization" => "Bearer #{access_token}")
         .get("https://api.spotify.com/v1/search?q=#{search_words}&type=album&market=JP")
-    data = JSON.parse(response.body.to_s)
-    render json: { response: data }
+    albums_data = JSON.parse(response.body.to_s)["albums"]["items"]
+    result = []
+    albums_data.each do |album|
+      tmp = {
+                  name: album["name"],
+                  image_url: album["images"].second["url"],
+                  spotify_id: album["id"],
+                  external_url: album["external_urls"]["spotify"]
+                }
+      result << tmp
+    end
+    render json: { searched_albums: result }
   end
 end
