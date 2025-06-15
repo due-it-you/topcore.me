@@ -1,17 +1,7 @@
-import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import axios from '../../../../api/lib/apiClient';
-import SearchedAlbum from './SearchedAlbum';
 
-export default function SearchBar() {
-  const [albums, setAlbums] = useState(null);
-
-  async function onSearchClick() {
-    const res = await axios.get('/albums/search');
-    const albums = res.data.searchedAlbums;
-    setAlbums(albums);
-  }
+export default function SearchBar({ onSearchClick }) {
   return (
     <div className="mb-4 flex items-center justify-center">
       <Input
@@ -26,17 +16,6 @@ export default function SearchBar() {
       >
         🔍
       </Button>
-      <div>
-        {albums
-          ? albums.map((album) => {
-              return (
-                <div key={album.spotifyId}>
-                  <SearchedAlbum src={album.imageUrl} alt={album.name} />
-                </div>
-              );
-            })
-          : ''}
-      </div>
     </div>
   );
 }
