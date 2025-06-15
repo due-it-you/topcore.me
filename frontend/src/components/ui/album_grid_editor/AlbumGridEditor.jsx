@@ -3,7 +3,6 @@ import Album from './Album';
 import { Button } from '@/components/ui/button';
 import DropAlbumGrid from './DropAlbumGrid';
 
-
 export default function AlbumGridEditor() {
   return (
     <div className="flex h-screen w-3/5 items-center justify-center">
@@ -11,7 +10,7 @@ export default function AlbumGridEditor() {
         <div className="h-full p-12">
           <DropAlbumGrid />
           <div className="mt-4 text-right">
-            <Button className="bg-[#20C997] font-semibold text-white hover:bg-[#1CB588]">
+            <Button className="bg-[#20C997] font-semibold text-white hover:bg-[#1DB954]">
               リンクを生成
             </Button>
           </div>
