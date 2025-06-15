@@ -5,6 +5,7 @@ import axios from '../../../../api/lib/apiClient';
 
 export default function AlbumSearchCard() {
   const [albums, setAlbums] = useState(null);
+  const [searchAlbumInput, setSearchAlbumInput] = useState(null);
   async function onSearchClick() {
     const res = await axios.get('/albums/search');
     const albums = res.data.searchedAlbums;
@@ -15,7 +16,7 @@ export default function AlbumSearchCard() {
     <div className="flex h-screen w-2/5 items-center">
       <div className="mx-4 h-4/5 w-full rounded-2xl bg-[#151A1E] shadow-2xl">
         <div className="h-full p-12">
-          <SearchBar onSearchClick={onSearchClick} />
+          <SearchBar onSearchClick={onSearchClick} setSearchAlbumInput={setSearchAlbumInput} />
           <SearchResult albums={albums} />
         </div>
       </div>
