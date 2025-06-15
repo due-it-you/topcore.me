@@ -1,3 +1,6 @@
+import SearchBar from "./SearchBar";
+import SearchResult from "./SearchResult";
+
 export default function AlbumSearchCard() {
   return (
     <div className="flex h-screen w-2/5 items-center">
