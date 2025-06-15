@@ -19,10 +19,13 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # React側のURL
-    origins 'http://localhost:5173',
-            'https://www.topcore.me',
-            'https://topcore.me',
-            %r{\Ahttps:\/\/topcore-me-git-[^\.]+\.due-it-yous-projects\.vercel\.app\z}
+    origins do |origin, _env|
+      origin == 'http://localhost:5173' ||
+      origin == 'https://www.topcore.me' ||
+      origin == 'https://topcore.me' ||
+      origin =~ /\Ahttps:\/\/topcore-me-git-[^.]+\.due-it-yous-projects\.vercel\.app\z/
+    end
+    
     resource '*',
       headers: :any,
       methods: %i[get post put patch delete options head],
