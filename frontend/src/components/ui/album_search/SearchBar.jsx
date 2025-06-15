@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import axios from '../../../../api/lib/apiClient';
+import SearchedAlbum from './SearchedAlbum';
 
 export default function SearchBar() {
   const [albums, setAlbums] = useState(null);
@@ -29,8 +30,8 @@ export default function SearchBar() {
         {albums
           ? albums.map((album) => {
               return (
-                <div className="aspect-square rounded-xl" key={album.spotifyId}>
-                  <img src={album.imageUrl} alt={album.name} />
+                <div key={album.spotifyId}>
+                  <SearchedAlbum src={album.imageUrl} alt={album.name} />
                 </div>
               );
             })

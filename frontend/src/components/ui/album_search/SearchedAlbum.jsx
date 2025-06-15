@@ -1,10 +1,10 @@
-export default function SearchedAlbum() {
+export default function SearchedAlbum({src, alt}) {
   return (
     <div>
       <div className="aspect-square rounded-xl bg-white">
         <img
-          src="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"
-          alt="album_image"
+          src={src}
+          alt={alt}
           className="rounded-xl"
         />
       </div>
