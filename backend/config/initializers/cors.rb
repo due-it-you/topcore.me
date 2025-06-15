@@ -18,7 +18,8 @@
 # 特定のフロントエンドからのリクエストを明示的に許可
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:5173', 'https://www.topcore.me', 'https://topcore.me' # React側のURL
+    # React側のURL
+    origins 'http://localhost:5173', 'https://www.topcore.me', 'https://topcore.me', /\Ahttps:\/\/topcore-me-git-[^.]+\.due-it-yous-projects\.vercel\.app\z/
     resource '*',
       headers: :any,
       methods: %i[get post put patch delete options head],
