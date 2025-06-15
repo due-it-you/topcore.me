@@ -22,7 +22,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins 'http://localhost:5173',
             'https://www.topcore.me',
             'https://topcore.me',
-            %r{\Ahttps:\/\/topcore-me-git-.*\.due-it-yous-projects\.vercel\.app\z}
+            %r{\Ahttps:\/\/topcore-me-git-[^\.]+\.due-it-yous-projects\.vercel\.app\z}
     resource '*',
       headers: :any,
       methods: %i[get post put patch delete options head],
