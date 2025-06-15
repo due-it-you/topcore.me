@@ -5,7 +5,7 @@ export default function SearchBar({ onSearchClick, setSearchAlbumInput }) {
   return (
     <div className="mb-4 flex items-center justify-center">
       <Input
-        className="w-3/4 bg-[#252A30] text-[#C4C6C9]"
+        className="w-3/4 bg-[#252A30] text-[#C4C6C9] border border-gray-300"
         placeholder="検索したいアルバムを入力してください"
         onChange={(e) => setSearchAlbumInput(e.target.value)}
       />
