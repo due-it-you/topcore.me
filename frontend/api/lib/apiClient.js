@@ -10,7 +10,7 @@ const options = {
 const createClient = () => {
   const instance = axios.create({
     // APIのベースとなるURLを設定
-    baseURL: `${import.meta.env.VITE_API_BASE_URL}/api/v1`,
+    baseURL: `${import.meta.env.VITE_API_BASE_URL}api/v1`,
   });
   return applyCaseMiddleware(instance, options);
 };
