@@ -1,12 +1,8 @@
-export default function SearchedAlbum({src, alt}) {
+export default function SearchedAlbum({ src, alt }) {
   return (
     <div>
-      <div className="aspect-square rounded-xl bg-white">
-        <img
-          src={src}
-          alt={alt}
-          className="rounded-xl"
-        />
+      <div>
+        <img src={src} alt={alt} className="aspect-square h-full w-full rounded-xl object-cover" />
       </div>
     </div>
   );
