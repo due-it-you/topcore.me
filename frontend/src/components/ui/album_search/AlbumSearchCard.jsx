@@ -7,7 +7,7 @@ export default function AlbumSearchCard() {
   const [albums, setAlbums] = useState(null);
   const [searchAlbumInput, setSearchAlbumInput] = useState(null);
   async function onSearchClick() {
-    const res = await axios.get('/albums/search');
+    const res = await axios.get('/albums/search', {params: {name: searchAlbumInput}});
     const albums = res.data.searchedAlbums;
     setAlbums(albums);
   }
