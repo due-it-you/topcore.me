@@ -41,6 +41,8 @@ export default function CreateGridBody() {
             activeAlt={activeAlt}
             activeSrc={activeSrc}
             isDragging={isDragging}
+            handleDragStart={handleDragStart}
+            handleDragEnd={handleDragEnd}
           />
           <AlbumGridEditor />
         </DndContext>

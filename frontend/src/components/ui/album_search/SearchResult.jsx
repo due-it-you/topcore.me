@@ -2,7 +2,15 @@ import AlbumImage from './AlbumImage';
 import Draggable from '../dnd/Draggable';
 import { DndContext, DragOverlay } from '@dnd-kit/core';
 
-export default function SearchResult({ albums, isDragging, activeId, activeAlt, activeSrc }) {
+export default function SearchResult({
+  albums,
+  isDragging,
+  activeId,
+  activeAlt,
+  activeSrc,
+  handleDragStart,
+  handleDragEnd,
+}) {
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="h-7/8 overflow-y-scroll">
