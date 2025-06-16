@@ -29,12 +29,7 @@ export default function CreateGridBody() {
   return (
     <>
       <div className="flex px-16">
-        <DndContext
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          onSearchClick={onSearchClick}
-          setSearchAlbumInput={setSearchAlbumInput}
-        >
+        <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
           <AlbumSearchCard
             albums={albums}
             activeId={activeId}
@@ -43,6 +38,8 @@ export default function CreateGridBody() {
             isDragging={isDragging}
             handleDragStart={handleDragStart}
             handleDragEnd={handleDragEnd}
+            setSearchAlbumInput={setSearchAlbumInput}
+            onSearchClick={onSearchClick}
           />
           <AlbumGridEditor />
         </DndContext>
