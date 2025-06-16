@@ -1,23 +1,8 @@
 import AlbumImage from './AlbumImage';
 import Draggable from '../dnd/Draggable';
-import { useState } from 'react';
 import { DndContext, DragOverlay } from '@dnd-kit/core';
 
-export default function SearchResult({ albums }) {
-  const [activeId, setActiveId] = useState(null);
-  const [activeSrc, setActiveSrc] = useState(null);
-  const [activeAlt, setActiveAlt] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-  function handleDragStart(event) {
-    setIsDragging(true);
-    setActiveId(event.active.id);
-    setActiveSrc(albums[event.active.id].imageUrl);
-    setActiveAlt(albums[event.active.id].name);
-  }
-  function handleDragEnd() {
-    setIsDragging(false);
-    setActiveId(null);
-  }
+export default function SearchResult({ albums, isDragging, activeId, activeAlt, activeSrc }) {
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="h-7/8 overflow-y-scroll">
