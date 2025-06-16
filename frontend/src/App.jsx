@@ -4,6 +4,7 @@ import Header from './components/common/Header';
 import AlbumSearchCard from './components/ui/album_search/AlbumSearchCard';
 import CreateGridBody from './components/layout/CreateGridBody';
 import AlbumGridEditor from './components/ui/album_grid_editor/AlbumGridEditor';
+import { DndContext } from '@dnd-kit/core';
 
 function App() {
   return (
@@ -11,8 +12,10 @@ function App() {
       <Layout>
         <Header />
         <CreateGridBody>
-          <AlbumSearchCard />
-          <AlbumGridEditor />
+          <DndContext>
+            <AlbumSearchCard />
+            <AlbumGridEditor />
+          </DndContext>
         </CreateGridBody>
       </Layout>
     </>
