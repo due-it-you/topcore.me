@@ -1,3 +1,5 @@
+import { useDraggable } from '@dnd-kit/core';
+
 export default function SearchedAlbum({ src, alt }) {
   return (
     <div>
