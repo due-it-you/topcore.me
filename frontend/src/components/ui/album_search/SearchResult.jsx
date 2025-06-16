@@ -7,12 +7,15 @@ export default function SearchResult({ albums }) {
   const [activeId, setActiveId] = useState(null);
   const [activeSrc, setActiveSrc] = useState(null);
   const [activeAlt, setActiveAlt] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
   function handleDragStart(event) {
+    setIsDragging(true);
     setActiveId(event.active.id);
     setActiveSrc(albums[event.active.id].imageUrl);
     setActiveAlt(albums[event.active.id].name);
   }
   function handleDragEnd() {
+    setIsDragging(false);
     setActiveId(null);
   }
   return (
@@ -33,7 +36,7 @@ export default function SearchResult({ albums }) {
         </div>
       </div>
       <DragOverlay>
-        {activeId ? (
+        {isDragging ? (
           <div key={activeId}>
             <AlbumImage src={activeSrc} alt={activeAlt} />
           </div>
