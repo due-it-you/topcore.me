@@ -1,7 +1,12 @@
-export default function CreateGridBody({ children }) {
+export default function CreateGridBody() {
   return (
     <>
-      <div className="px-16 flex">{children}</div>
+      <div className="flex px-16">
+        <DndContext>
+          <AlbumSearchCard />
+          <AlbumGridEditor />
+        </DndContext>
+      </div>
     </>
   );
 }
