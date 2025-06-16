@@ -9,8 +9,6 @@ export default function AlbumSearchCard({
   activeAlt,
   activeSrc,
   isDragging,
-  handleDragStart,
-  handleDragEnd,
 }) {
   return (
     <div className="flex h-screen w-2/5 items-center">
@@ -26,8 +24,6 @@ export default function AlbumSearchCard({
           />
           <SearchResult
             albums={albums}
-            handleDragStart={handleDragStart}
-            handleDragEnd={handleDragEnd}
           />
         </div>
       </div>

@@ -7,12 +7,10 @@ export default function SearchResult({
   isDragging,
   activeId,
   activeAlt,
-  activeSrc,
-  handleDragStart,
-  handleDragEnd,
+  activeSrc
 }) {
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <>
       <div className="h-7/8 overflow-y-scroll">
         <div className="grid grid-cols-3 gap-1">
           {albums
@@ -35,6 +33,6 @@ export default function SearchResult({
           </div>
         ) : null}
       </DragOverlay>
-    </DndContext>
+    </>
   );
 }
