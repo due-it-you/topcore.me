@@ -44,8 +44,6 @@ export default function CreateGridBody() {
     if (over == null) {
       return;
     }
-    // 今ドロップしているアルバムの画像情報をDroppableの領域にセットする
-    setDroppedSrc(activeSrc);
   }
   return (
     <>
