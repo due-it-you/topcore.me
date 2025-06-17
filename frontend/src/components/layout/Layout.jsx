@@ -1,7 +1,7 @@
-export default function Layout({ children }) {
+export default function Layout({ children, color }) {
   return (
-    <>
-      <div className="min-h-screen bg-[#121212]">{children}</div>
-    </>
+    <div style={{ backgroundColor: color }} className="min-h-screen">
+      {children}
+    </div>
   );
 }
