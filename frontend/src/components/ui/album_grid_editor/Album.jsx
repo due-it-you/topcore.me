@@ -19,7 +19,7 @@ export default function Album({ id, src, alt }) {
       style={style}
       {...attributes}
       {...listeners}
-      className="aspect-square rounded-xl border border-white bg-[#0E1012]"
+      className="aspect-square rounded-xl bg-[#0E1012]"
     >
       <div>
         <AlbumImage src={src} alt={alt} />
