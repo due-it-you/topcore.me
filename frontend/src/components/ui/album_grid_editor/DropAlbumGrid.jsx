@@ -1,7 +1,4 @@
-import {
-  SortableContext,
-  rectSortingStrategy
-} from '@dnd-kit/sortable';
+import { SortableContext, rectSortingStrategy } from '@dnd-kit/sortable';
 import Album from './Album';
 
 export default function DropAlbumGrid({ assignedAlbums }) {
