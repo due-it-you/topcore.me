@@ -10,7 +10,7 @@ export default function ColorPalette() {
         <Color className={'bg-[#79A00E]'} />
         <Color className={'bg-[#3EC199]'} />
         <Color className={'bg-[#DA7742]'} />
-        <Color className={'bg-[#D99AAD]'} />
+        <Color className={'bg-[#F4A2BB]'} />
         <Color className={'bg-[#FFF3E3]'} />
       </div>
     </div>
