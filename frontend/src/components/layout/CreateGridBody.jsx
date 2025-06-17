@@ -12,7 +12,7 @@ import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import AlbumSearchCard from '../ui/album_search/AlbumSearchCard';
 import AlbumGridEditor from '../ui/album_grid_editor/AlbumGridEditor';
 
-export default function CreateGridBody({ setColor }) {
+export default function CreateGridBody({ color, setColor }) {
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -112,7 +112,7 @@ export default function CreateGridBody({ setColor }) {
             setSearchAlbumInput={setSearchAlbumInput}
             onSearchClick={onSearchClick}
           />
-          <AlbumGridEditor assignedAlbums={assignedAlbums} setColor={setColor} />
+          <AlbumGridEditor assignedAlbums={assignedAlbums} color={color} setColor={setColor} />
         </DndContext>
       </div>
     </>
