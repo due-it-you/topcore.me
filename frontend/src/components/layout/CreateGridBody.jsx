@@ -40,6 +40,8 @@ export default function CreateGridBody() {
   function handleDragEnd(event) {
     setIsDragging(false);
     setActiveId(null);
+
+    // ドラッグしているアルバムの情報を、ドロップしたマスに割り当てる処理
     const { over } = event;
     if (over == null) {
       return;
