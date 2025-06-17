@@ -2,7 +2,7 @@ import ColorPalette from '../color_palette/ColorPalette';
 import { Button } from '@/components/ui/button';
 import DropAlbumGrid from './DropAlbumGrid';
 
-export default function AlbumGridEditor({ assignedAlbums }) {
+export default function AlbumGridEditor({ assignedAlbums, setColor }) {
   return (
     <div className="flex h-screen w-3/5 items-center justify-center">
       <div className="mx-4 flex aspect-square w-3/4">
@@ -15,7 +15,7 @@ export default function AlbumGridEditor({ assignedAlbums }) {
           </div>
         </div>
         <div className="h-full w-1/4">
-          <ColorPalette />
+          <ColorPalette setColor={setColor} />
         </div>
       </div>
     </div>

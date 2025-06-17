@@ -10,7 +10,7 @@ function App() {
     <>
       <Layout color={color}>
         <Header />
-        <CreateGridBody />
+        <CreateGridBody setColor={setColor} />
       </Layout>
     </>
   );
