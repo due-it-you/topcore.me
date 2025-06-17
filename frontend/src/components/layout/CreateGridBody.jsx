@@ -14,17 +14,17 @@ export default function CreateGridBody() {
   const [albums, setAlbums] = useState(null);
   const [searchAlbumInput, setSearchAlbumInput] = useState(null);
   // グリッドのマスの状態管理
-  const [assignedAlbums, setAssignedAlbums] = useState({
-    'cell-0': { src: null, alt: null },
-    'cell-1': { src: null, alt: null },
-    'cell-2': { src: null, alt: null },
-    'cell-3': { src: null, alt: null },
-    'cell-4': { src: null, alt: null },
-    'cell-5': { src: null, alt: null },
-    'cell-6': { src: null, alt: null },
-    'cell-7': { src: null, alt: null },
-    'cell-8': { src: null, alt: null },
-  });
+  const [assignedAlbums, setAssignedAlbums] = useState([
+    {id: 'cell-0', src: null, alt: null },
+    {id: 'cell-1', src: null, alt: null },
+    {id: 'cell-2', src: null, alt: null },
+    {id: 'cell-3', src: null, alt: null },
+    {id: 'cell-4', src: null, alt: null },
+    {id: 'cell-5', src: null, alt: null },
+    {id: 'cell-6', src: null, alt: null },
+    {id: 'cell-7', src: null, alt: null },
+    {id: 'cell-8', src: null, alt: null },
+  ]);
 
   async function onSearchClick() {
     const res = await axios.get('/albums/search', { params: { name: searchAlbumInput } });
@@ -58,7 +58,7 @@ export default function CreateGridBody() {
             setSearchAlbumInput={setSearchAlbumInput}
             onSearchClick={onSearchClick}
           />
-          <AlbumGridEditor />
+          <AlbumGridEditor assignedAlbums={assignedAlbums} />
         </DndContext>
       </div>
     </>
