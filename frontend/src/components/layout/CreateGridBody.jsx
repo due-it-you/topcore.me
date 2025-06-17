@@ -1,10 +1,24 @@
 import { useState } from 'react';
 import axios from './../../../api/lib/apiClient';
-import { DndContext } from '@dnd-kit/core';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import AlbumSearchCard from '../ui/album_search/AlbumSearchCard';
 import AlbumGridEditor from '../ui/album_grid_editor/AlbumGridEditor';
 
 export default function CreateGridBody() {
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    }),
+  );
   // ドラッグしている対象の状態管理
   const [activeId, setActiveId] = useState(null);
   const [activeSrc, setActiveSrc] = useState(null);
@@ -32,33 +46,63 @@ export default function CreateGridBody() {
     setAlbums(albums);
   }
   function handleDragStart(event) {
+    const activeId = event.active.id;
     setIsDragging(true);
     setActiveId(event.active.id);
-    setActiveSrc(albums[event.active.id].imageUrl);
-    setActiveAlt(albums[event.active.id].name);
+
+    const fromSearch = albums?.[activeId];
+    const fromGrid = assignedAlbums.find((a) => a.id === activeId);
+
+    if (fromSearch) {
+      setActiveSrc(albums[event.active.id]?.imageUrl);
+      setActiveAlt(albums[event.active.id]?.name);
+    } else if (fromGrid) {
+      setActiveSrc(fromGrid.src);
+      setActiveAlt(fromGrid.alt);
+    } else {
+      setActiveSrc(null);
+      setActiveAlt(null);
+    }
   }
+
   function handleDragEnd(event) {
     setIsDragging(false);
-    setActiveId(null);
-
-    // ドラッグしているアルバムの情報を、ドロップしたマスに割り当てる処理
-    const { over } = event;
+    const { active, over } = event;
     if (over == null) {
       return;
     }
-    const updatedCell = assignedAlbums.map((album) => {
-      if (album.id == over.id) {
-        return { ...album, src: activeSrc, alt: activeAlt };
-      }
-      return album;
-    });
 
-    setAssignedAlbums(updatedCell);
+    const isFromSearchResult = albums?.[active.id];
+
+    // ドラッグしているアルバムの情報を、ドロップしたマスに割り当てる処理
+    if (isFromSearchResult) {
+      const updatedCell = assignedAlbums.map((album) => {
+        if (album.id == over.id) {
+          return { ...album, src: activeSrc, alt: activeAlt };
+        }
+        return album;
+      });
+      setAssignedAlbums(updatedCell);
+    }
+
+    // マス間の並び替え
+    else {
+      if (active.id === over.id) return;
+      const oldIndex = assignedAlbums.findIndex((album) => album.id === active.id);
+      const newIndex = assignedAlbums.findIndex((album) => album.id === over.id);
+      const reordered = arrayMove(assignedAlbums, oldIndex, newIndex);
+      setAssignedAlbums(reordered);
+    }
   }
   return (
     <>
       <div className="flex px-16">
-        <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
+        >
           <AlbumSearchCard
             albums={albums}
             activeId={activeId}
