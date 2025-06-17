@@ -1,6 +1,6 @@
 import AlbumImage from './AlbumImage';
 import Draggable from '../dnd/Draggable';
-import { DndContext, DragOverlay } from '@dnd-kit/core';
+import { DragOverlay } from '@dnd-kit/core';
 
 export default function SearchResult({
   albums,

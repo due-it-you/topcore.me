@@ -1,5 +1,4 @@
 import {
-  arrayMove,
   SortableContext,
   rectSortingStrategy
 } from '@dnd-kit/sortable';
