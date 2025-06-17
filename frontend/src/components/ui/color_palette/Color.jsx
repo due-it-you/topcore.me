@@ -5,7 +5,8 @@ export default function Color({ className, color, setColor }) {
   return (
     <button
       onClick={onColorClick}
-      className={`h-8 w-8 rounded-full ${className} bg-[${color}] hover:opacity-75`}
+      className="h-8 w-8 rounded-full hover:opacity-75 border border-gray-600"
+      style={{ background: color }}
     ></button>
   );
 }
