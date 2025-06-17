@@ -1,18 +1,18 @@
 import { useDroppable } from '@dnd-kit/core';
+import AlbumImage from '../album_search/AlbumImage';
 
-export default function Album() {
+export default function Album({ id, src, alt }) {
   const { setNodeRef } = useDroppable({
-    id: 'unique-id',
+    id: id,
   });
 
   return (
-    <div className="aspect-square rounded-xl border border-white bg-[#0E1012]">
-      <div ref={setNodeRef}>
-        {/* <img
-          src="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"
-          alt="set_album"
-          className="rounded-sm"
-        /> */}
+    <div ref={setNodeRef} className="aspect-square rounded-xl border border-white bg-[#0E1012]">
+      <div>
+        <AlbumImage
+          src={src}
+          alt={alt}
+        />
       </div>
     </div>
   );

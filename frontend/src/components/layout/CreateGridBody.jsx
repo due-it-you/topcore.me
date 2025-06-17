@@ -1,7 +1,76 @@
-export default function CreateGridBody({ children }) {
+import { useState } from 'react';
+import axios from './../../../api/lib/apiClient';
+import { DndContext } from '@dnd-kit/core';
+import AlbumSearchCard from '../ui/album_search/AlbumSearchCard';
+import AlbumGridEditor from '../ui/album_grid_editor/AlbumGridEditor';
+
+export default function CreateGridBody() {
+  // ドラッグしている対象の状態管理
+  const [activeId, setActiveId] = useState(null);
+  const [activeSrc, setActiveSrc] = useState(null);
+  const [activeAlt, setActiveAlt] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  // 検索機能における状態管理
+  const [albums, setAlbums] = useState(null);
+  const [searchAlbumInput, setSearchAlbumInput] = useState(null);
+  // グリッドのマスの状態管理
+  const [assignedAlbums, setAssignedAlbums] = useState([
+    { id: 'cell-0', src: null, alt: null },
+    { id: 'cell-1', src: null, alt: null },
+    { id: 'cell-2', src: null, alt: null },
+    { id: 'cell-3', src: null, alt: null },
+    { id: 'cell-4', src: null, alt: null },
+    { id: 'cell-5', src: null, alt: null },
+    { id: 'cell-6', src: null, alt: null },
+    { id: 'cell-7', src: null, alt: null },
+    { id: 'cell-8', src: null, alt: null },
+  ]);
+
+  async function onSearchClick() {
+    const res = await axios.get('/albums/search', { params: { name: searchAlbumInput } });
+    const albums = res.data.searchedAlbums;
+    setAlbums(albums);
+  }
+  function handleDragStart(event) {
+    setIsDragging(true);
+    setActiveId(event.active.id);
+    setActiveSrc(albums[event.active.id].imageUrl);
+    setActiveAlt(albums[event.active.id].name);
+  }
+  function handleDragEnd(event) {
+    setIsDragging(false);
+    setActiveId(null);
+
+    // ドラッグしているアルバムの情報を、ドロップしたマスに割り当てる処理
+    const { over } = event;
+    if (over == null) {
+      return;
+    }
+    const updatedCell = assignedAlbums.map((album) => {
+      if (album.id == over.id) {
+        return { ...album, src: activeSrc, alt: activeAlt };
+      }
+      return album;
+    });
+
+    setAssignedAlbums(updatedCell);
+  }
   return (
     <>
-      <div className="px-16 flex">{children}</div>
+      <div className="flex px-16">
+        <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+          <AlbumSearchCard
+            albums={albums}
+            activeId={activeId}
+            activeAlt={activeAlt}
+            activeSrc={activeSrc}
+            isDragging={isDragging}
+            setSearchAlbumInput={setSearchAlbumInput}
+            onSearchClick={onSearchClick}
+          />
+          <AlbumGridEditor assignedAlbums={assignedAlbums} />
+        </DndContext>
+      </div>
     </>
   );
 }
