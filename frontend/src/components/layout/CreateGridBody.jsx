@@ -46,10 +46,23 @@ export default function CreateGridBody() {
     setAlbums(albums);
   }
   function handleDragStart(event) {
+    const activeId = event.active.id;
     setIsDragging(true);
     setActiveId(event.active.id);
-    setActiveSrc(albums[event.active.id]?.imageUrl);
-    setActiveAlt(albums[event.active.id]?.name);
+
+    const fromSearch = albums?.[activeId];
+    const fromGrid = assignedAlbums.find((a) => a.id === activeId);
+
+    if (fromSearch) {
+      setActiveSrc(albums[event.active.id]?.imageUrl);
+      setActiveAlt(albums[event.active.id]?.name);
+    } else if (fromGrid) {
+      setActiveSrc(fromGrid.src);
+      setActiveAlt(fromGrid.alt);
+    } else {
+      setActiveSrc(null);
+      setActiveAlt(null);
+    }
   }
 
   function handleDragEnd(event) {
