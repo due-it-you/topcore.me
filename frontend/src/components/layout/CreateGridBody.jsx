@@ -15,15 +15,15 @@ export default function CreateGridBody() {
   const [searchAlbumInput, setSearchAlbumInput] = useState(null);
   // グリッドのマスの状態管理
   const [assignedAlbums, setAssignedAlbums] = useState([
-    {id: 'cell-0', src: null, alt: null },
-    {id: 'cell-1', src: null, alt: null },
-    {id: 'cell-2', src: null, alt: null },
-    {id: 'cell-3', src: null, alt: null },
-    {id: 'cell-4', src: null, alt: null },
-    {id: 'cell-5', src: null, alt: null },
-    {id: 'cell-6', src: null, alt: null },
-    {id: 'cell-7', src: null, alt: null },
-    {id: 'cell-8', src: null, alt: null },
+    { id: 'cell-0', src: null, alt: null },
+    { id: 'cell-1', src: null, alt: null },
+    { id: 'cell-2', src: null, alt: null },
+    { id: 'cell-3', src: null, alt: null },
+    { id: 'cell-4', src: null, alt: null },
+    { id: 'cell-5', src: null, alt: null },
+    { id: 'cell-6', src: null, alt: null },
+    { id: 'cell-7', src: null, alt: null },
+    { id: 'cell-8', src: null, alt: null },
   ]);
 
   async function onSearchClick() {
@@ -44,6 +44,14 @@ export default function CreateGridBody() {
     if (over == null) {
       return;
     }
+    const updatedCell = assignedAlbums.map((album) => {
+      if (album.id == over.id) {
+        return { ...album, src: activeSrc, alt: activeAlt };
+      }
+      return album;
+    });
+
+    setAssignedAlbums(updatedCell);
   }
   return (
     <>
