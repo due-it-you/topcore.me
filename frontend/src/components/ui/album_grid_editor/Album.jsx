@@ -1,6 +1,5 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useDroppable } from '@dnd-kit/core';
 import AlbumImage from '../album_search/AlbumImage';
 
 export default function Album({ id, src, alt }) {
