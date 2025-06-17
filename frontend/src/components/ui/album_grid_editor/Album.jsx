@@ -1,11 +1,29 @@
-export default function Album() {
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import AlbumImage from '../album_search/AlbumImage';
+
+export default function Album({ id, src, alt }) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id,
+  });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.3 : 1,
+  };
+
   return (
-    <div className="aspect-square rounded-xl bg-[#0E1012]">
-      <img
-        src="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"
-        alt="set_album"
-        className="rounded-sm"
-      />
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+      className="aspect-square rounded-xl bg-[#0E1012]"
+    >
+      <div>
+        <AlbumImage src={src} alt={alt} />
+      </div>
     </div>
   );
 }
