@@ -12,7 +12,7 @@ export default function ColorPalette({ color, setColor }) {
         <Color color={'#DA7742'} setColor={setColor} />
         <Color color={'#F4A2BB'} setColor={setColor} />
         <Color color={'#FFF3E3'} setColor={setColor} />
-        <div className="h-8 w-8 rounded-full border border-gray-400" style={{ background: color }}>
+        <div className="h-8 w-8 border border-gray-400" style={{ background: color }}>
           <input
             type="color"
             value={color}
