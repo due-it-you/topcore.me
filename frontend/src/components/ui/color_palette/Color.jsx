@@ -1,3 +1,3 @@
-export default function Color() {
-  return <div className="w-8 h-8 rounded-full bg-white"></div>;
+export default function Color({ className }) {
+  return <div className={`h-8 w-8 rounded-full ${className}`}></div>;
 }
