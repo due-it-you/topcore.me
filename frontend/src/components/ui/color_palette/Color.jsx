@@ -1,3 +1,3 @@
 export default function Color({ className }) {
-  return <div className={`h-8 w-8 rounded-full ${className}`}></div>;
+  return <button className={`h-8 w-8 rounded-full ${className} hover:opacity-75`}></button>;
 }
