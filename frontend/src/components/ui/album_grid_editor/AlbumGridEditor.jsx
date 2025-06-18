@@ -11,6 +11,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import DropAlbumGrid from './DropAlbumGrid';
+import { Input } from '../input';
 
 export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
   return (
@@ -29,19 +30,18 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
                 <DialogContent className="border border-[#646464] bg-[#151A1E] p-12 text-white sm:max-w-[425px]">
                   <DialogHeader>
                     <DialogTitle>ユーザー名とアイコンの設定</DialogTitle>
-                    <DialogDescription>
-                      ※アイコンの設定は任意です
-                    </DialogDescription>
+                    <DialogDescription>※アイコンの設定は任意です</DialogDescription>
                   </DialogHeader>
-                  <div className="grid gap-4">
-                    <div className="grid gap-3"></div>
-                    <div className="grid gap-3"></div>
+                  <div>
+                    <Input />
                   </div>
                   <DialogFooter>
                     <DialogClose asChild>
-                      <Button variant="outline">Cancel</Button>
+                      <Button className="hover:bg-gray-800 border border-gray-400">キャンセル</Button>
                     </DialogClose>
-                    <Button type="submit">Save changes</Button>
+                    <Button type="submit" className="bg-[#20C997] font-bold hover:bg-[#1DB954]">
+                      完了
+                    </Button>
                   </DialogFooter>
                 </DialogContent>
               </form>
