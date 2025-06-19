@@ -1,6 +1,6 @@
 import React from 'react';
 import Cropper from 'react-easy-crop';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { ASPECT_RATIO, CROP_WIDTH } from './Uploader';
@@ -20,8 +20,9 @@ export default function CropperModal({
 }) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="w-[420px] h-[500px] flex flex-col justify-center rounded-lg p-0 overflow-hidden">
-        <div className="relative h-[400px] bg-[#f4f7fb] rounded-t-lg">
+      <DialogContent className="flex h-[500px] w-[420px] flex-col justify-center overflow-hidden rounded-lg p-0">
+        <DialogTitle className="sr-only">画像の切り取り</DialogTitle>
+        <div className="relative h-[400px] rounded-t-lg bg-[#f4f7fb]">
           <Cropper
             image={imgSrc}
             crop={crop}
@@ -46,7 +47,7 @@ export default function CropperModal({
           />
         </div>
 
-        <div className="flex items-center mt-2 px-6 h-10">
+        <div className="mt-2 flex h-10 items-center px-6">
           <Slider
             min={minZoom}
             max={minZoom + 3}
@@ -61,7 +62,7 @@ export default function CropperModal({
           />
         </div>
 
-        <div className="flex justify-between items-center px-10 mt-3 mb-2">
+        <div className="mt-3 mb-2 flex items-center justify-between px-10">
           <Button
             variant="secondary"
             className="bg-gray-500 text-white hover:bg-gray-600"
@@ -83,5 +84,3 @@ export default function CropperModal({
     </Dialog>
   );
 }
-
-
