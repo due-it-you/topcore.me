@@ -1,3 +1,4 @@
+import Uploader from '../upload_image/Uploader';
 import ColorPalette from '../color_palette/ColorPalette';
 import { Button } from '@/components/ui/button';
 import {
@@ -33,11 +34,16 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
                     <DialogDescription>※アイコンの設定は任意です</DialogDescription>
                   </DialogHeader>
                   <div>
+                    <Uploader />
+                  </div>
+                  <div>
                     <Input />
                   </div>
                   <DialogFooter>
                     <DialogClose asChild>
-                      <Button className="hover:bg-gray-800 border border-gray-400">キャンセル</Button>
+                      <Button className="border border-gray-400 hover:bg-gray-800">
+                        キャンセル
+                      </Button>
                     </DialogClose>
                     <Button type="submit" className="bg-[#20C997] font-bold hover:bg-[#1DB954]">
                       完了

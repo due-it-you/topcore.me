@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import { ASPECT_RATIO, CROP_WIDTH } from './constants';
 import CropperModal from './CropperModal';
 import getCroppedImg from '@/js/getCroppedImg';
 import { Button } from '@/components/ui/button';
