@@ -11,7 +11,7 @@ const Uploader = () => {
   const [zoom, setZoom] = useState(1);
   const [minZoom, setMinZoom] = useState(1);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState();
   const [croppedImgSrc, setCroppedImgSrc] = useState('');
 
   const onFileChange = useCallback(async (e) => {
