@@ -2,8 +2,8 @@ import React, { useState, useCallback } from 'react';
 import CropperModal from './CropperModal';
 import getCroppedImg from '@/js/getCroppedImg';
 import { Button } from '@/components/ui/button';
-export const ASPECT_RATIO = 6 / 1;
-export const CROP_WIDTH = 400;
+export const ASPECT_RATIO = 1 / 1;
+export const CROP_WIDTH = 50;
 
 const Uploader = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,14 +73,13 @@ const Uploader = () => {
         style={{
           width: `${CROP_WIDTH}px`,
           height: `${CROP_WIDTH / ASPECT_RATIO}px`,
+          borderRadius: '50%',
         }}
       >
         {croppedImgSrc ? (
           <img src={croppedImgSrc} alt="Cropped" className="h-full w-full object-contain" />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-gray-700">
-            The cropped image is displayed here
-          </div>
+          <div className="flex h-full w-full items-center justify-center bg-gray-400"></div>
         )}
       </div>
 

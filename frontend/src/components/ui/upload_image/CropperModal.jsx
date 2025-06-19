@@ -26,6 +26,7 @@ export default function CropperModal({
           <Cropper
             image={imgSrc}
             crop={crop}
+            cropShape="round"
             zoom={zoom}
             minZoom={minZoom}
             maxZoom={minZoom + 3}
