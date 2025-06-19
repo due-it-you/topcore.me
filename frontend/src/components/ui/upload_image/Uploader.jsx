@@ -3,6 +3,8 @@ import { ASPECT_RATIO, CROP_WIDTH } from './constants';
 import CropperModal from './CropperModal';
 import getCroppedImg from '@/js/getCroppedImg';
 import { Button } from '@/components/ui/button';
+export const ASPECT_RATIO = 6 / 1;
+export const CROP_WIDTH = 400;
 
 const Uploader = () => {
   const [isOpen, setIsOpen] = useState(false);
