@@ -20,7 +20,7 @@ export default function CropperModal({
 }) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="flex h-[500px] w-[420px] flex-col justify-center overflow-hidden rounded-lg p-0">
+      <DialogContent className="flex h-[600px] w-[520px] flex-col justify-center overflow-hidden rounded-lg border border-gray-700 bg-black p-8">
         <DialogTitle className="sr-only">画像の切り取り</DialogTitle>
         <div className="relative h-[400px] rounded-t-lg bg-[#f4f7fb]">
           <Cropper
