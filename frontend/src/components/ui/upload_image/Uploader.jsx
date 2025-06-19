@@ -57,16 +57,6 @@ const Uploader = () => {
 
   return (
     <div className="mx-auto mt-8 flex w-full max-w-xl flex-col items-center space-y-8">
-      {/* アップローダー */}
-      <div>
-        <label className="inline-flex items-center space-x-2">
-          <Button asChild>
-            <span>画像をアップロード</span>
-          </Button>
-          <input type="file" accept="image/*" onChange={onFileChange} className="hidden" />
-        </label>
-      </div>
-
       {/* アップロードした画像が表示される場所 */}
       <div
         className="relative overflow-hidden rounded border border-gray-400 bg-gray-100"
@@ -81,6 +71,16 @@ const Uploader = () => {
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gray-400"></div>
         )}
+      </div>
+
+      {/* アップローダー */}
+      <div>
+        <label className="inline-flex items-center space-x-2">
+          <Button asChild className="ml-2 bg-blue-500">
+            <span>画像をアップロード</span>
+          </Button>
+          <input type="file" accept="image/*" onChange={onFileChange} className="hidden" />
+        </label>
       </div>
 
       {/* 実際にユーザーがクロップを行う時のモーダル */}
