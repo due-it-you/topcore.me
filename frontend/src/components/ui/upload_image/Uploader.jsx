@@ -61,7 +61,7 @@ const Uploader = () => {
       <div>
         <label className="inline-flex items-center space-x-2">
           <Button asChild>
-            <span>ファイルをアップロード</span>
+            <span>画像をアップロード</span>
           </Button>
           <input type="file" accept="image/*" onChange={onFileChange} className="hidden" />
         </label>
