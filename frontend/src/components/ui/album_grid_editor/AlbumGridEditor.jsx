@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Uploader from '../upload_image/Uploader';
 import ColorPalette from '../color_palette/ColorPalette';
 import { Button } from '@/components/ui/button';
@@ -15,6 +16,10 @@ import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
 
 export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
+  const [displayName, setDisplayName] = useState('');
+  function onDisplayNameChange(e) {
+    setDisplayName(e.target.value);
+  }
   return (
     <div className="flex h-screen w-3/5 items-center justify-center">
       <div className="mx-4 flex aspect-square w-3/4">
@@ -39,7 +44,7 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
                     <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>
                   </DialogHeader>
                   <div>
-                    <Input />
+                    <Input onChange={onDisplayNameChange} />
                   </div>
                   <DialogFooter className="mt-4">
                     <DialogClose asChild>
