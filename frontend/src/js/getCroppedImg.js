@@ -32,7 +32,7 @@ export default async function getCroppedImg(imageSrc, pixelCrop) {
   canvas.height = pixelCrop.height;
 
   // 抽出した画像データをcanvasの左隅に貼り付け
-  createExpect.putImageData(data, 0, 0);
+  ctx.putImageData(data, 0, 0);
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((file) => {
