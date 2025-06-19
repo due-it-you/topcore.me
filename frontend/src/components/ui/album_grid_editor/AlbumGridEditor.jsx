@@ -30,16 +30,18 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
                 </DialogTrigger>
                 <DialogContent className="border border-[#646464] bg-[#151A1E] p-12 text-white sm:max-w-[425px]">
                   <DialogHeader>
-                    <DialogTitle>ユーザー名とアイコンの設定</DialogTitle>
-                    <DialogDescription>※アイコンの設定は任意です</DialogDescription>
+                    <DialogTitle>アイコンの設定（任意）</DialogTitle>
                   </DialogHeader>
                   <div>
                     <Uploader />
                   </div>
+                  <DialogHeader className="mt-4">
+                    <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>
+                  </DialogHeader>
                   <div>
                     <Input />
                   </div>
-                  <DialogFooter>
+                  <DialogFooter className="mt-4">
                     <DialogClose asChild>
                       <Button className="border border-gray-400 hover:bg-gray-800">
                         キャンセル
