@@ -59,8 +59,13 @@ export default function CropperModal({
                 setZoom(value[0]);
               }
             }}
-            className="w-full text-[#00A0FF]"
-          />
+            className="relative flex w-full touch-none items-center select-none"
+          >
+            <Slider.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-gray-700">
+              <Slider.Range className="absolute h-full bg-[#00A0FF]" />
+            </Slider.Track>
+            <Slider.Thumb className="block h-5 w-5 rounded-full border-2 border-white bg-[#00A0FF] shadow transition-colors hover:bg-[#0088dd] focus:ring-2 focus:ring-[#00A0FF] focus:outline-none" />
+          </Slider>
         </div>
 
         <div className="mt-3 mb-2 flex items-center justify-between px-10">
