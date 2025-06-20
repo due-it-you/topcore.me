@@ -8,7 +8,6 @@ class Api::V1::ProfileCardsController < ApplicationController
     display_name = profile_cards_params["profile_cards"]["display_name"]
     grid_rows = profile_cards_params["profile_cards"]["grid_rows"]
     grid_columns = profile_cards_params["profile_cards"]["grid_columns"]
-    end
   end
 
   private
