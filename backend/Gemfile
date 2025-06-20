@@ -47,6 +47,8 @@ group :development, :test do
   gem 'dotenv-rails'
 
   gem 'bullet'
+
+  gem "pry-rails"
 end
 
 gem "solid_cache", "~> 1.0"
