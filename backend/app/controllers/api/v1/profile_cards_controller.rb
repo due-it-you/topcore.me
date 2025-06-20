@@ -1,7 +1,13 @@
+require 'securerandom'
+
 class Api::V1::ProfileCardsController < ApplicationController
   def create
-    params["params"]["albums"].each do |album|
-      album["spotify_id"]
+    # profile_cards
+    slug = SecureRandom.alphanumeric(6)
+    bg_color = profile_cards_params["profile_cards"]["bg_color"]
+    display_name = profile_cards_params["profile_cards"]["display_name"]
+    grid_rows = profile_cards_params["profile_cards"]["grid_rows"]
+    grid_columns = profile_cards_params["profile_cards"]["grid_columns"]
     end
   end
 
