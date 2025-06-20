@@ -15,8 +15,7 @@ import {
 import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
 
-export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGenerateLinkButtonClick }) {
-  const [displayName, setDisplayName] = useState('');
+export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGenerateLinkButtonClick, setDisplayName }) {
   const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
   function handleDisplayNameChange(e) {
     setDisplayName(e.target.value);

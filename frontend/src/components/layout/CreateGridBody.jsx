@@ -19,6 +19,8 @@ export default function CreateGridBody({ color, setColor }) {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
   );
+  // プロフィールカードに表示されるユーザー名
+  const [displayName, setDisplayName] = useState('');
   // ドラッグしている対象の状態管理
   const [activeId, setActiveId] = useState(null);
   const [activeSrc, setActiveSrc] = useState(null);
@@ -96,7 +98,13 @@ export default function CreateGridBody({ color, setColor }) {
   }
 
   async function onGenerateLinkButtonClick() {
-    const res = await axios.post('/profile_cards', { params: { profile_cards: {grid_rows: 3, grid_columns: 3} } });
+    console.log(displayName);
+    const res = await axios.post('/profile_cards', {
+      params: {
+        profile_cards: { displayName: displayName, grid_rows: 3, grid_columns: 3 },
+        albums: assignedAlbums,
+      },
+    });
   }
   return (
     <>
@@ -121,6 +129,7 @@ export default function CreateGridBody({ color, setColor }) {
             color={color}
             setColor={setColor}
             onGenerateLinkButtonClick={onGenerateLinkButtonClick}
+            setDisplayName={setDisplayName}
           />
         </DndContext>
       </div>
