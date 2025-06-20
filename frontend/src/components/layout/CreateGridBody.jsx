@@ -102,13 +102,18 @@ export default function CreateGridBody({ color, setColor }) {
     }
 
     // グリッドの中に全てアルバムが割り当てられた時のみ、作成へ進む]ボタンを有効化
+    let assignedCellCount = 0;
     assignedAlbums.forEach((album) => {
-      if (album.src || album.alt || album.spotifyId) {
-        setDisabledCreateSettingButton(true);
-      } else {
-        setDisabledCreateSettingButton(false);
+      if (album.src && album.alt && album.spotifyId) {
+        assignedCellCount++;
       }
-    })
+    });
+
+    if (assignedCellCount === (assignedAlbums.length - 1)) {
+      setDisabledCreateSettingButton(false);
+    } else {
+      setDisabledCreateSettingButton(true);
+    }
   }
 
   // プロフィールカードのリンク生成
@@ -120,9 +125,9 @@ export default function CreateGridBody({ color, setColor }) {
       },
     });
     if (res.data.slug) {
-      const slug = res.data.slug
+      const slug = res.data.slug;
     } else {
-      const error = res.data.error
+      const error = res.data.error;
     }
   }
   return (
