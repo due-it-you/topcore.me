@@ -35,7 +35,7 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGen
               <form>
                 <DialogTrigger asChild>
                   <Button className="bg-[#20C997] font-semibold text-white hover:bg-[#1DB954]">
-                    リンクを生成
+                    作成へ進む
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="border border-[#646464] bg-[#151A1E] p-12 text-white sm:max-w-[425px]">
