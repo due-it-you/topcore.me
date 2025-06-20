@@ -49,6 +49,7 @@ group :development, :test do
   gem 'bullet'
 
   gem "pry-rails"
+  gem 'pry-byebug'
 end
 
 gem "solid_cache", "~> 1.0"
