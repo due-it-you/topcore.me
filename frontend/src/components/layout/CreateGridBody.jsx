@@ -109,7 +109,11 @@ export default function CreateGridBody({ color, setColor }) {
         albums: assignedAlbums,
       },
     });
-    const slug = res.data.slug
+    if (res.data.slug) {
+      const slug = res.data.slug
+    } else {
+      const error = res.data.error
+    }
   }
   return (
     <>

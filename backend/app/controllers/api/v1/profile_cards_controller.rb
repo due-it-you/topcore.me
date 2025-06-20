@@ -4,6 +4,8 @@ class Api::V1::ProfileCardsController < ApplicationController
   def create
     profile_card = ProfileCard.create_with_albums!(profile_cards_params)
     render json: { slug: profile_card.slug }
+  rescue ActiveRecord::RecordInvalid => e
+    render json: { error: e.message }
   end
 
   private
