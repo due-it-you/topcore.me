@@ -1,0 +1,2 @@
+class ProfileCard < ApplicationRecord
+end
