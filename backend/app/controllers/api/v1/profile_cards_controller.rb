@@ -16,6 +16,12 @@ class Api::V1::ProfileCardsController < ApplicationController
       grid_rows: grid_rows,
       grid_columns: grid_columns
     )
+
+    profile_cards_params["albums"].each_with_index do |album, index|
+      album = Album.find_or_create_by!(spotify_id: album["spotify_id"])
+
+      profile_card.profile_card_albums.create!(album: album ,position: index)
+    end
   end
 
   private
