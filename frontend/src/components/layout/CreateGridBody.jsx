@@ -94,6 +94,10 @@ export default function CreateGridBody({ color, setColor }) {
       setAssignedAlbums(reordered);
     }
   }
+
+  async function onGenerateLinkButtonClick() {
+    const res = await axios.post('/profile_cards', { params: { profile_cards: {grid_rows: 3, grid_columns: 3} } });
+  }
   return (
     <>
       <div className="flex px-16">
@@ -112,7 +116,12 @@ export default function CreateGridBody({ color, setColor }) {
             setSearchAlbumInput={setSearchAlbumInput}
             onSearchClick={onSearchClick}
           />
-          <AlbumGridEditor assignedAlbums={assignedAlbums} color={color} setColor={setColor} />
+          <AlbumGridEditor
+            assignedAlbums={assignedAlbums}
+            color={color}
+            setColor={setColor}
+            onGenerateLinkButtonClick={onGenerateLinkButtonClick}
+          />
         </DndContext>
       </div>
     </>
