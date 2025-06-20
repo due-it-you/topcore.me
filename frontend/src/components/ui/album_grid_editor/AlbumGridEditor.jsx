@@ -15,7 +15,7 @@ import {
 import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
 
-export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGenerateLinkButtonClick, setDisplayName }) {
+export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGenerateLinkButtonClick, setDisplayName, disabledCreateSettingButton }) {
   const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
   function handleDisplayNameChange(e) {
     setDisplayName(e.target.value);
@@ -34,7 +34,7 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGen
             <Dialog>
               <form>
                 <DialogTrigger asChild>
-                  <Button className="bg-[#20C997] font-semibold text-white hover:bg-[#1DB954]">
+                  <Button disabled={disabledCreateSettingButton} className="bg-[#20C997] font-semibold text-white hover:bg-[#1DB954]">
                     作成へ進む
                   </Button>
                 </DialogTrigger>
