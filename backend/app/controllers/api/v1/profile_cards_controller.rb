@@ -22,6 +22,7 @@ class Api::V1::ProfileCardsController < ApplicationController
 
       profile_card.profile_card_albums.create!(album: album ,position: index)
     end
+    render json: { slug: slug }
   end
 
   private
