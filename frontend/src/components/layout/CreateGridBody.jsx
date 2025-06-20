@@ -13,6 +13,7 @@ import AlbumSearchCard from '../ui/album_search/AlbumSearchCard';
 import AlbumGridEditor from '../ui/album_grid_editor/AlbumGridEditor';
 
 export default function CreateGridBody({ color, setColor }) {
+  const [disabledCreateSettingButton, setDisabledCreateSettingButton] = useState(true);
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -99,6 +100,20 @@ export default function CreateGridBody({ color, setColor }) {
       const reordered = arrayMove(assignedAlbums, oldIndex, newIndex);
       setAssignedAlbums(reordered);
     }
+
+    // グリッドの中に全てアルバムが割り当てられた時のみ、作成へ進む]ボタンを有効化
+    let assignedCellCount = 0;
+    assignedAlbums.forEach((album) => {
+      if (album.src && album.alt && album.spotifyId) {
+        assignedCellCount++;
+      }
+    });
+
+    if (assignedCellCount === (assignedAlbums.length - 1)) {
+      setDisabledCreateSettingButton(false);
+    } else {
+      setDisabledCreateSettingButton(true);
+    }
   }
 
   // プロフィールカードのリンク生成
@@ -110,9 +125,9 @@ export default function CreateGridBody({ color, setColor }) {
       },
     });
     if (res.data.slug) {
-      const slug = res.data.slug
+      const slug = res.data.slug;
     } else {
-      const error = res.data.error
+      const error = res.data.error;
     }
   }
   return (
@@ -140,6 +155,7 @@ export default function CreateGridBody({ color, setColor }) {
             setColor={setColor}
             onGenerateLinkButtonClick={onGenerateLinkButtonClick}
             setDisplayName={setDisplayName}
+            disabledCreateSettingButton={disabledCreateSettingButton}
           />
         </DndContext>
       </div>
