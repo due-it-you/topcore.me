@@ -101,10 +101,11 @@ export default function CreateGridBody({ color, setColor }) {
     }
   }
 
+  // プロフィールカードのリンク生成
   async function onGenerateLinkButtonClick() {
     const res = await axios.post('/profile_cards', {
       params: {
-        profile_cards: { displayName: displayName, grid_rows: 3, grid_columns: 3 },
+        profileCards: { displayName: displayName, bgColor: color, gridRows: 3, gridColumns: 3 },
         albums: assignedAlbums,
       },
     });
