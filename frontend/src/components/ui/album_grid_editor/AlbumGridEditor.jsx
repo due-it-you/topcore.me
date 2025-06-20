@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Uploader from '../upload_image/Uploader';
 import ColorPalette from '../color_palette/ColorPalette';
 import { Button } from '@/components/ui/button';
@@ -14,7 +15,16 @@ import {
 import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
 
-export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
+export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGenerateLinkButtonClick, setDisplayName }) {
+  const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
+  function handleDisplayNameChange(e) {
+    setDisplayName(e.target.value);
+    if (e.target.value === '') {
+      setDisabledGenerateLinkButton(true);
+    } else {
+      setDisabledGenerateLinkButton(false);
+    }
+  }
   return (
     <div className="flex h-screen w-3/5 items-center justify-center">
       <div className="mx-4 flex aspect-square w-3/4">
@@ -39,7 +49,7 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
                     <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>
                   </DialogHeader>
                   <div>
-                    <Input />
+                    <Input onChange={handleDisplayNameChange} />
                   </div>
                   <DialogFooter className="mt-4">
                     <DialogClose asChild>
@@ -47,7 +57,12 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor }) {
                         キャンセル
                       </Button>
                     </DialogClose>
-                    <Button type="submit" className="bg-[#20C997] font-bold hover:bg-[#1DB954]">
+                    <Button
+                      disabled={disabledGenerateLinkButton}
+                      type="submit"
+                      className="bg-[#20C997] font-bold hover:bg-[#1DB954]"
+                      onClick={onGenerateLinkButtonClick}
+                    >
                       完了
                     </Button>
                   </DialogFooter>
