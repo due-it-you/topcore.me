@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_06_20_101203) do
+ActiveRecord::Schema[7.2].define(version: 2025_06_20_102705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_101203) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profile_card_albums", force: :cascade do |t|
+    t.string "position", null: false
+    t.bigint "profile_card_id", null: false
+    t.bigint "album_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_profile_card_albums_on_album_id"
+    t.index ["profile_card_id"], name: "index_profile_card_albums_on_profile_card_id"
+  end
+
   create_table "profile_cards", force: :cascade do |t|
     t.string "slug", null: false
     t.string "bg_color", null: false
@@ -60,4 +70,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_20_101203) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "profile_card_albums", "albums"
+  add_foreign_key "profile_card_albums", "profile_cards"
 end
