@@ -8,6 +8,7 @@ export default function AlbumSearchCard({
   activeId,
   activeAlt,
   activeSrc,
+  activeSpotifyId,
   isDragging,
 }) {
   return (
@@ -20,6 +21,7 @@ export default function AlbumSearchCard({
             isDragging={isDragging}
             activeAlt={activeAlt}
             activeSrc={activeSrc}
+            activeSpotifyId={activeSpotifyId}
             albums={albums}
           />
         </div>
