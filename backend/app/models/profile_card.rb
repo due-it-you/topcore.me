@@ -10,19 +10,12 @@ class ProfileCard < ApplicationRecord
 
   def self.create_with_albums!(profile_cards_params)
     transaction do
-      # profile_cards
-      slug = SecureRandom.alphanumeric(6)
-      bg_color = profile_cards_params["profile_cards"]["bg_color"]
-      display_name = profile_cards_params["profile_cards"]["display_name"]
-      grid_rows = profile_cards_params["profile_cards"]["grid_rows"]
-      grid_columns = profile_cards_params["profile_cards"]["grid_columns"]
-
       profile_card = ProfileCard.create!(
-        slug: slug,
-        bg_color: bg_color,
-        display_name: display_name,
-        grid_rows: grid_rows,
-        grid_columns: grid_columns
+        slug: SecureRandom.alphanumeric(6),
+        bg_color: profile_cards_params["profile_cards"]["bg_color"],
+        display_name: profile_cards_params["profile_cards"]["display_name"],
+        grid_rows: profile_cards_params["profile_cards"]["grid_rows"],
+        grid_columns: profile_cards_params["profile_cards"]["grid_columns"]
       )
 
       profile_cards_params["albums"].each_with_index do |album, index|
