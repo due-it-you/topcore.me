@@ -8,6 +8,14 @@ class Api::V1::ProfileCardsController < ApplicationController
     display_name = profile_cards_params["profile_cards"]["display_name"]
     grid_rows = profile_cards_params["profile_cards"]["grid_rows"]
     grid_columns = profile_cards_params["profile_cards"]["grid_columns"]
+
+    profile_card = ProfileCard.create(
+      slug: slug,
+      bg_color: bg_color,
+      display_name: display_name,
+      grid_rows: grid_rows,
+      grid_columns: grid_columns
+    )
   end
 
   private
