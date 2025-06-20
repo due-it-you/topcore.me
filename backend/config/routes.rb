@@ -8,6 +8,7 @@ Rails.application.routes.draw do
           get :search
         end
       end
+      resources :profile_cards, only: %i[create]
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
