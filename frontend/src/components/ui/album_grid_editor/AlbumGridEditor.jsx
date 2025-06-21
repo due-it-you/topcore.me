@@ -16,6 +16,7 @@ import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function AlbumGridEditor({
   assignedAlbums,
@@ -40,15 +41,16 @@ export default function AlbumGridEditor({
     const txt = document.getElementById('txt');
     navigator.clipboard.writeText(txt.textContent).then(
       () => {
-        console.log('コピー完了');
+        toast.success('コピーが完了しました！')
       },
       () => {
-        console.log('コピー失敗');
+        toast.error('コピーが失敗しました...')
       },
     );
   }
   return (
     <div className="flex h-screen w-3/5 items-center justify-center">
+      <div><Toaster /></div>
       <div className="mx-4 flex aspect-square w-3/4">
         <div className="h-full p-12">
           <DropAlbumGrid assignedAlbums={assignedAlbums} />
