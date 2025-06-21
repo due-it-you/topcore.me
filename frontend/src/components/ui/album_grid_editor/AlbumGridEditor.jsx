@@ -14,6 +14,8 @@ import {
 } from '@/components/ui/dialog';
 import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 
 export default function AlbumGridEditor({
   assignedAlbums,
@@ -90,9 +92,11 @@ export default function AlbumGridEditor({
                           コピーしてSNSのプロフィールに貼りましょう!!
                         </DialogDescription>
                       </DialogHeader>
-                      <div className="flex items-center rounded-xl bg-gray-800 font-semibold text-white">
+                      <div className="flex items-center rounded-xl bg-gray-800 font-semibold text-white text-xl">
                         <div className="p-4">https://topcore.me/{slug}</div>
-                        <button className="aspect-square h-8 rounded-sm bg-white text-black hover:bg-gray-200"></button>
+                        <button className="aspect-square h-8 rounded-sm bg-white text-black hover:bg-gray-200">
+                          <FontAwesomeIcon icon={faClipboard} />
+                        </button>
                       </div>
                     </>
                   )}
