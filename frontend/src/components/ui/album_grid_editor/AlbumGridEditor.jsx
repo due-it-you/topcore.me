@@ -88,15 +88,17 @@ export default function AlbumGridEditor({
                     <>
                       <DialogHeader className="mt-4">
                         <DialogTitle>リンクの生成が完了しました！🎉</DialogTitle>
-                        <DialogDescription>
+                        <DialogDescription className="font-semibold">
                           コピーしてSNSのプロフィールに貼りましょう!!
                         </DialogDescription>
                       </DialogHeader>
-                      <div className="flex items-center rounded-xl bg-gray-800 font-semibold text-white text-xl">
-                        <div className="p-4">https://topcore.me/{slug}</div>
-                        <button className="aspect-square h-8 rounded-sm bg-white text-black hover:bg-gray-200">
-                          <FontAwesomeIcon icon={faClipboard} />
-                        </button>
+                      <div className="mt-2 rounded-xl bg-gray-800 text-xl text-white">
+                        <div className="flex items-center justify-between p-4">
+                          <div className="">https://topcore.me/{slug}</div>
+                          <button className="aspect-square rounded-sm h-8 bg-white text-black hover:bg-gray-200">
+                            <FontAwesomeIcon icon={faClipboard} />
+                          </button>
+                        </div>
                       </div>
                     </>
                   )}
