@@ -30,12 +30,14 @@ class Api::V1::ProfileCardsController < ApplicationController
     response = HTTP.headers("Authorization" => "Bearer #{access_token}")
                 .get("https://api.spotify.com/v1/albums?ids=#{spotify_ids_str}&market=JP")
     assigned_albums = JSON.parse(response.body.to_s)
-    albums = assigned_albums["albums"].map do |album|
-      {
-        name: album["name"],
-        external_url: album["external_urls"]["spotify"],
-        image_url: album["images"].second["url"]
-      }
+    albums = []
+    assigned_albums["albums"].each do |album|
+      album_data = {
+                    name: album["name"],
+                    external_url: album["external_urls"]["spotify"],
+                    image_url: album["images"].second["url"]
+                  }
+      albums << album_data
     end
     profile_card = {
       bg_color: profile_card.bg_color,
