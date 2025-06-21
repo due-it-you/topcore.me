@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 export const ASPECT_RATIO = 1 / 1;
 export const CROP_WIDTH = 50;
 
-const Uploader = () => {
+const Uploader = ({ setAvatarBlob }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [imgSrc, setImgSrc] = useState('');
   const [zoom, setZoom] = useState(1);
@@ -50,6 +50,7 @@ const Uploader = () => {
     try {
       const croppedImage = await getCroppedImg(imgSrc, croppedAreaPixels);
       setCroppedImgSrc(croppedImage.previewUrl);
+      setAvatarBlob(croppedImage.blob);
     } catch (e) {
       console.error(e);
     }

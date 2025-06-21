@@ -22,6 +22,8 @@ export default function CreateGridBody({ color, setColor }) {
   );
   //プロフィールカードのリンクのためのslug
   const [slug, setSlug] = useState(null);
+  // プロフィールカードの画像データ
+  const [avatarBlob, setAvatarBlob] = useState(null);
   // プロフィールカードに表示されるユーザー名
   const [displayName, setDisplayName] = useState('');
   // ドラッグしている対象の状態管理
@@ -159,6 +161,7 @@ export default function CreateGridBody({ color, setColor }) {
             assignedAlbums={assignedAlbums}
             color={color}
             setColor={setColor}
+            setAvatarBlob={setAvatarBlob}
             onGenerateLinkButtonClick={onGenerateLinkButtonClick}
             setDisplayName={setDisplayName}
             disabledCreateSettingButton={disabledCreateSettingButton}
