@@ -49,7 +49,7 @@ const Uploader = () => {
     if (!croppedAreaPixels) return;
     try {
       const croppedImage = await getCroppedImg(imgSrc, croppedAreaPixels);
-      setCroppedImgSrc(croppedImage);
+      setCroppedImgSrc(croppedImage.previewUrl);
     } catch (e) {
       console.error(e);
     }
