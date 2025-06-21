@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from './../../../../api/lib/apiClient';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/common/Header';
-import Album from '../album_grid_editor/Album';
-import CreateGridBody from '@/components/layout/CreateGridBody';
 
 export default function ProfileCard() {
   const params = useParams();
