@@ -1,4 +1,6 @@
 class ProfileCard < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+  
   has_many :profile_card_albums
   has_many :albums, through: :profile_card_albums
 
