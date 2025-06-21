@@ -34,7 +34,9 @@ gem "rack-cors"
 gem "http"
 
 gem "solid_cache", "~> 1.0"
+
 gem 'carrierwave', '~> 3.0'
+gem 'fog-aws'
 
 
 group :development, :test do
