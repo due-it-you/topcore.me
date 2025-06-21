@@ -129,7 +129,10 @@ export default function CreateGridBody({ color, setColor }) {
     formData.append('profile_cards[bg_color]', color);
     formData.append('profile_cards[grid_rows]', 3);
     formData.append('profile_cards[grid_columns]', 3);
-    formData.append('albums', JSON.stringify(assignedAlbums));
+
+    assignedAlbums.forEach((album, index) => {
+      formData.append(`albums[${index}][spotify_id]`, album.spotifyId);
+    });
 
     if (avatarBlob) {
       formData.append('profile_cards[avatar]', avatarBlob, 'avatar.jpg');
