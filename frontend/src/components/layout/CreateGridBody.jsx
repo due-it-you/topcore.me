@@ -20,6 +20,8 @@ export default function CreateGridBody({ color, setColor }) {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
   );
+  //プロフィールカードのリンクのためのslug
+  const [slug, setSlug] = useState(null);
   // プロフィールカードに表示されるユーザー名
   const [displayName, setDisplayName] = useState('');
   // ドラッグしている対象の状態管理
@@ -43,6 +45,8 @@ export default function CreateGridBody({ color, setColor }) {
     { id: 'cell-7', src: null, alt: null, spotifyId: null },
     { id: 'cell-8', src: null, alt: null, spotifyId: null },
   ]);
+  // [ユーザー名, 画像アイコン]の設定モーダル -> 生成されたリンクの表示モーダル のステップの管理
+  const [step, setStep] = useState('form');
 
   async function onSearchClick() {
     const res = await axios.get('/albums/search', { params: { name: searchAlbumInput } });
@@ -109,7 +113,7 @@ export default function CreateGridBody({ color, setColor }) {
       }
     });
 
-    if (assignedCellCount === (assignedAlbums.length - 1)) {
+    if (assignedCellCount === assignedAlbums.length - 1) {
       setDisabledCreateSettingButton(false);
     } else {
       setDisabledCreateSettingButton(true);
@@ -124,10 +128,12 @@ export default function CreateGridBody({ color, setColor }) {
         albums: assignedAlbums,
       },
     });
+    // slugがあればslugを渡してモーダルのステップを進める。 なければエラーを表示する。
     if (res.data.slug) {
-      const slug = res.data.slug;
+      setSlug(res.data.slug)
+      setStep('success');
     } else {
-      const error = res.data.error;
+      setStep('error');
     }
   }
   return (
@@ -156,6 +162,8 @@ export default function CreateGridBody({ color, setColor }) {
             onGenerateLinkButtonClick={onGenerateLinkButtonClick}
             setDisplayName={setDisplayName}
             disabledCreateSettingButton={disabledCreateSettingButton}
+            step={step}
+            slug={slug}
           />
         </DndContext>
       </div>
