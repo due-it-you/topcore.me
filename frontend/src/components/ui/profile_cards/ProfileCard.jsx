@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from './../../../../api/lib/apiClient';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/common/Header';
+import Album from '../album_grid_editor/Album';
 import CreateGridBody from '@/components/layout/CreateGridBody';
 
 export default function ProfileCard() {
@@ -27,18 +28,33 @@ export default function ProfileCard() {
 
   return (
     <>
-      {albums &&
-        albums.map((album, index) => {
-          return <div key={index}>{album.name}</div>;
-        })}
-      <div>{bgColor}</div>
-      <div>{displayName}</div>
-      <div>{gridColumns}</div>
-      <div>{gridRows}</div>
-      {/* <Layout color={profileCard.bgColor}>
+      <Layout color={bgColor}>
         <Header />
-        <CreateGridBody setColor={setColor} color={bgColor} />
-      </Layout> */}
+        <div className="flex min-h-screen items-center justify-center">
+          <div className="aspect-square w-110">
+            <div className="grid grid-cols-3 grid-rows-3 gap-2">
+              {albums &&
+                albums.map((album, index) => {
+                  return (
+                    <div key={index}>
+                      <a href={album.externalUrl}>
+                        <div className="aspect-square rounded-xl bg-[#0E1012]">
+                          <div>
+                            <img
+                              src={album.imageUrl}
+                              alt={album.name}
+                              className="aspect-square h-full w-full rounded-xl border border-white object-cover"
+                            />
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </div>
+      </Layout>
     </>
   );
 }
