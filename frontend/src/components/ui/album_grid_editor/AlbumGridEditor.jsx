@@ -23,6 +23,7 @@ export default function AlbumGridEditor({
   setDisplayName,
   disabledCreateSettingButton,
   step,
+  slug
 }) {
   const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
   function handleDisplayNameChange(e) {
@@ -83,7 +84,7 @@ export default function AlbumGridEditor({
                   )}
                   {step === 'success' && (
                     <>
-                      <div>成功です</div>
+                      <div>{slug}</div>
                     </>
                   )}
                 </DialogContent>

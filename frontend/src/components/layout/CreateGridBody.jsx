@@ -20,6 +20,8 @@ export default function CreateGridBody({ color, setColor }) {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
   );
+  //プロフィールカードのリンクのためのslug
+  const [slug, setSlug] = useState(null);
   // プロフィールカードに表示されるユーザー名
   const [displayName, setDisplayName] = useState('');
   // ドラッグしている対象の状態管理
@@ -111,7 +113,7 @@ export default function CreateGridBody({ color, setColor }) {
       }
     });
 
-    if (assignedCellCount === (assignedAlbums.length - 1)) {
+    if (assignedCellCount === assignedAlbums.length - 1) {
       setDisabledCreateSettingButton(false);
     } else {
       setDisabledCreateSettingButton(true);
@@ -126,8 +128,13 @@ export default function CreateGridBody({ color, setColor }) {
         albums: assignedAlbums,
       },
     });
-    // slugがあればモーダルのステップを進める。 なければエラーを表示する。
-    res.data.slug ? setStep('success') : setStep('error')
+    // slugがあればslugを渡してモーダルのステップを進める。 なければエラーを表示する。
+    if (res.data.slug) {
+      setSlug(res.data.slug)
+      setStep('success');
+    } else {
+      setStep('error');
+    }
   }
   return (
     <>
@@ -156,6 +163,7 @@ export default function CreateGridBody({ color, setColor }) {
             setDisplayName={setDisplayName}
             disabledCreateSettingButton={disabledCreateSettingButton}
             step={step}
+            slug={slug}
           />
         </DndContext>
       </div>
