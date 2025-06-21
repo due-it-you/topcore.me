@@ -43,6 +43,8 @@ export default function CreateGridBody({ color, setColor }) {
     { id: 'cell-7', src: null, alt: null, spotifyId: null },
     { id: 'cell-8', src: null, alt: null, spotifyId: null },
   ]);
+  // [ユーザー名, 画像アイコン]の設定モーダル -> 生成されたリンクの表示モーダル のステップの管理
+  const [step, setStep] = useState('form');
 
   async function onSearchClick() {
     const res = await axios.get('/albums/search', { params: { name: searchAlbumInput } });
@@ -124,11 +126,8 @@ export default function CreateGridBody({ color, setColor }) {
         albums: assignedAlbums,
       },
     });
-    if (res.data.slug) {
-      const slug = res.data.slug;
-    } else {
-      const error = res.data.error;
-    }
+    // slugがあればモーダルのステップを進める。 なければエラーを表示する。
+    res.data.slug ? setStep('success') : setStep('error')
   }
   return (
     <>
@@ -156,6 +155,7 @@ export default function CreateGridBody({ color, setColor }) {
             onGenerateLinkButtonClick={onGenerateLinkButtonClick}
             setDisplayName={setDisplayName}
             disabledCreateSettingButton={disabledCreateSettingButton}
+            step={step}
           />
         </DndContext>
       </div>

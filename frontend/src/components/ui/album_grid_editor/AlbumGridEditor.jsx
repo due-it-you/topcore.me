@@ -15,7 +15,15 @@ import {
 import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
 
-export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGenerateLinkButtonClick, setDisplayName, disabledCreateSettingButton }) {
+export default function AlbumGridEditor({
+  assignedAlbums,
+  color,
+  setColor,
+  onGenerateLinkButtonClick,
+  setDisplayName,
+  disabledCreateSettingButton,
+  step,
+}) {
   const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
   function handleDisplayNameChange(e) {
     setDisplayName(e.target.value);
@@ -34,38 +42,50 @@ export default function AlbumGridEditor({ assignedAlbums, color, setColor, onGen
             <Dialog>
               <form>
                 <DialogTrigger asChild>
-                  <Button disabled={disabledCreateSettingButton} className="bg-[#20C997] font-semibold text-white hover:bg-[#1DB954]">
+                  <Button
+                    disabled={disabledCreateSettingButton}
+                    className="bg-[#20C997] font-semibold text-white hover:bg-[#1DB954]"
+                  >
                     作成へ進む
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="border border-[#646464] bg-[#151A1E] p-12 text-white sm:max-w-[425px]">
-                  <DialogHeader>
-                    <DialogTitle>アイコンの設定（任意）</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <Uploader />
-                  </div>
-                  <DialogHeader className="mt-4">
-                    <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>
-                  </DialogHeader>
-                  <div>
-                    <Input onChange={handleDisplayNameChange} />
-                  </div>
-                  <DialogFooter className="mt-4">
-                    <DialogClose asChild>
-                      <Button className="border border-gray-400 hover:bg-gray-800">
-                        キャンセル
-                      </Button>
-                    </DialogClose>
-                    <Button
-                      disabled={disabledGenerateLinkButton}
-                      type="submit"
-                      className="bg-[#20C997] font-bold hover:bg-[#1DB954]"
-                      onClick={onGenerateLinkButtonClick}
-                    >
-                      完了
-                    </Button>
-                  </DialogFooter>
+                  {step === 'form' && (
+                    <>
+                      <DialogHeader>
+                        <DialogTitle>アイコンの設定（任意）</DialogTitle>
+                      </DialogHeader>
+                      <div>
+                        <Uploader />
+                      </div>
+                      <DialogHeader className="mt-4">
+                        <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>
+                      </DialogHeader>
+                      <div>
+                        <Input onChange={handleDisplayNameChange} />
+                      </div>
+                      <DialogFooter className="mt-4">
+                        <DialogClose asChild>
+                          <Button className="border border-gray-400 hover:bg-gray-800">
+                            キャンセル
+                          </Button>
+                        </DialogClose>
+                        <Button
+                          disabled={disabledGenerateLinkButton}
+                          type="submit"
+                          className="bg-[#20C997] font-bold hover:bg-[#1DB954]"
+                          onClick={onGenerateLinkButtonClick}
+                        >
+                          完了
+                        </Button>
+                      </DialogFooter>
+                    </>
+                  )}
+                  {step === 'success' && (
+                    <>
+                      <div>成功です</div>
+                    </>
+                  )}
                 </DialogContent>
               </form>
             </Dialog>
