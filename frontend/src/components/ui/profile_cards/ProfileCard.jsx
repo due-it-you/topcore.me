@@ -37,7 +37,7 @@ export default function ProfileCard() {
                 albums.map((album, index) => {
                   return (
                     <div key={index}>
-                      <a href={album.externalUrl}>
+                      <a href={album.externalUrl} target="_blank">
                         <div className="aspect-square rounded-xl bg-[#0E1012]">
                           <div>
                             <img
