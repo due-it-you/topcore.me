@@ -23,7 +23,7 @@ export default function AlbumGridEditor({
   setDisplayName,
   disabledCreateSettingButton,
   step,
-  slug
+  slug,
 }) {
   const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
   function handleDisplayNameChange(e) {
@@ -84,7 +84,16 @@ export default function AlbumGridEditor({
                   )}
                   {step === 'success' && (
                     <>
-                      <div>{slug}</div>
+                      <DialogHeader className="mt-4">
+                        <DialogTitle>リンクの生成が完了しました！🎉</DialogTitle>
+                        <DialogDescription>
+                          コピーしてSNSのプロフィールに貼りましょう!!
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="flex items-center rounded-xl bg-gray-800 font-semibold text-white">
+                        <div className="p-4">https://topcore.me/{slug}</div>
+                        <button className="aspect-square h-8 rounded-sm bg-white text-black hover:bg-gray-200"></button>
+                      </div>
                     </>
                   )}
                 </DialogContent>
