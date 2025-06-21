@@ -4,10 +4,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   # include CarrierWave::Vips
 
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
-
+  # 開発環境はローカルにアップロード, 本番環境はAWS S3にアップロード
+  if Rails.env.development? || Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
