@@ -26,6 +26,8 @@ export default function CreateGridBody({ color, setColor }) {
   const [avatarBlob, setAvatarBlob] = useState(null);
   // プロフィールカードに表示されるユーザー名
   const [displayName, setDisplayName] = useState('');
+  // プロフィールカードの保存処理における進捗の状態管理
+  const [progress, setProgress] = useState(0);
   // ドラッグしている対象の状態管理
   const [activeId, setActiveId] = useState(null);
   const [activeSrc, setActiveSrc] = useState(null);
@@ -140,9 +142,18 @@ export default function CreateGridBody({ color, setColor }) {
     if (avatarBlob) {
       formData.append('profile_cards[avatar]', avatarBlob, 'avatar.jpg');
     }
+
+    setStep('progress');
     const res = await axios.post('/profile_cards', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
+      onUploadProgress: (e) => {
+        console.log(e);
+        if (!e.total) return;
+        const percentCompleted = Math.round((e.loaded * 100) / e.total);
+        setProgress(percentCompleted);
+      },
     });
+
     // slugがあればslugを渡してモーダルのステップを進める。 なければエラーを表示する。
     if (res.data.slug) {
       setSlug(res.data.slug);
@@ -180,6 +191,7 @@ export default function CreateGridBody({ color, setColor }) {
             disabledCreateSettingButton={disabledCreateSettingButton}
             step={step}
             slug={slug}
+            progress={progress}
           />
         </DndContext>
       </div>
