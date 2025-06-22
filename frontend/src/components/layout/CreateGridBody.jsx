@@ -131,10 +131,10 @@ export default function CreateGridBody({ color, setColor }) {
     formData.append('profile_cards[grid_columns]', 3);
 
     assignedAlbums.forEach((album, index) => {
-      formData.append(`albums[${index}][id]`, album.id);
-      formData.append(`albums[${index}][src]`, album.src);
-      formData.append(`albums[${index}][alt]`, album.alt);
-      formData.append(`albums[${index}][spotify_id]`, album.spotifyId);
+      formData.append(`albums[][id]`, album.id);
+      formData.append(`albums[][src]`, album.src);
+      formData.append(`albums[][alt]`, album.alt);
+      formData.append(`albums[][spotify_id]`, album.spotifyId);
     });
 
     if (avatarBlob) {

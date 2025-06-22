@@ -1,6 +1,6 @@
 class ProfileCard < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
-  
+
   has_many :profile_card_albums
   has_many :albums, through: :profile_card_albums
 
@@ -17,7 +17,8 @@ class ProfileCard < ApplicationRecord
         bg_color: profile_cards_params["profile_cards"]["bg_color"],
         display_name: profile_cards_params["profile_cards"]["display_name"],
         grid_rows: profile_cards_params["profile_cards"]["grid_rows"],
-        grid_columns: profile_cards_params["profile_cards"]["grid_columns"]
+        grid_columns: profile_cards_params["profile_cards"]["grid_columns"],
+        avatar: profile_cards_params["profile_cards"]["avatar"]
       )
 
       profile_cards_params["albums"].each_with_index do |album, index|
