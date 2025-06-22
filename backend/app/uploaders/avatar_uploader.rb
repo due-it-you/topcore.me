@@ -6,7 +6,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # 開発環境はローカルにアップロード, 本番環境はAWS S3にアップロード
   if Rails.env.development? || Rails.env.test?
-    storage :file
+    storage :fog
   else
     storage :fog
   end
