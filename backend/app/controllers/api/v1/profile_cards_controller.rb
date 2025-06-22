@@ -51,7 +51,7 @@ class Api::V1::ProfileCardsController < ApplicationController
   private
 
   def profile_cards_params
-    params.require(:params).permit(
+    params.permit(
       profile_cards: [:display_name, :bg_color, :grid_rows, :grid_columns],
       albums: [:id, :src, :alt, :spotify_id]
     )
