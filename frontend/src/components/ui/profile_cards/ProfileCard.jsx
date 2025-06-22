@@ -54,7 +54,21 @@ export default function ProfileCard() {
             </div>
             <div className="mt-2 w-full text-right">
               <div className="inline-block rounded-lg bg-white px-4 py-2 font-bold text-black">
-                <span className="text-gray-500">by</span> {displayName}
+                <div className="flex items-center">
+                  <span className="mr-2 text-gray-500">by</span>
+                  <div className="mr-2">
+                    {avatar ? (
+                      <img
+                        className="h-8 rounded-full border border-gray-300"
+                        src={avatar}
+                        alt="profile_card_avatar"
+                      />
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                  <div>{displayName}</div>
+                </div>
               </div>
             </div>
           </div>
