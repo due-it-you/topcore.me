@@ -107,7 +107,7 @@ export default function AlbumGridEditor({
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="text-2xl font-bold">作成中...</div>
-                          <div>
+                          <div className="mt-2">
                             <Progress value={progress} className="w-full" />
                           </div>
                         </div>
