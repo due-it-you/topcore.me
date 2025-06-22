@@ -17,6 +17,7 @@ import { Input } from '../input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import toast, { Toaster } from 'react-hot-toast';
+import { Progress } from "@/components/ui/progress"
 
 export default function AlbumGridEditor({
   assignedAlbums,
@@ -71,6 +72,7 @@ export default function AlbumGridEditor({
                   {step === 'form' && (
                     <>
                       <DialogHeader>
+                        <Progress value="63" className="w-full" />
                         <DialogTitle>アイコンの設定（任意）</DialogTitle>
                       </DialogHeader>
                       <div>

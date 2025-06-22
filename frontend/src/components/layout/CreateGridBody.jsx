@@ -146,11 +146,13 @@ export default function CreateGridBody({ color, setColor }) {
     const res = await axios.post('/profile_cards', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
       onUploadProgress: (e) => {
+        console.log(e)
         if (!e.total) return;
         const percentCompleted = Math.round((e.loaded * 100) / e.total);
         setProgress(percentCompleted);
       }
     });
+
     // slugがあればslugを渡してモーダルのステップを進める。 なければエラーを表示する。
     if (res.data.slug) {
       setSlug(res.data.slug);
