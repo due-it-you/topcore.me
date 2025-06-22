@@ -188,6 +188,7 @@ export default function CreateGridBody({ color, setColor }) {
             disabledCreateSettingButton={disabledCreateSettingButton}
             step={step}
             slug={slug}
+            progress={progress}
           />
         </DndContext>
       </div>

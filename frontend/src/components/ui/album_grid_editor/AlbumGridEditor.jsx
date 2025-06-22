@@ -28,6 +28,7 @@ export default function AlbumGridEditor({
   disabledCreateSettingButton,
   step,
   slug,
+  progress,
 }) {
   const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
   function handleDisplayNameChange(e) {
