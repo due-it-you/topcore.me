@@ -59,7 +59,7 @@ export default function ProfileCard() {
                   <div className="mr-2">
                     {avatar ? (
                       <img
-                        className="h-8 rounded-full border border-gray-300"
+                        className="h-8 rounded-full border border-gray-200"
                         src={avatar}
                         alt="profile_card_avatar"
                       />
