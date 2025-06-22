@@ -2,7 +2,7 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import AlbumImage from '../album_search/AlbumImage';
 
-export default function Album({ id, src, alt }) {
+export default function Album({ id, src, alt, spotifyId }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id,
   });
@@ -22,7 +22,7 @@ export default function Album({ id, src, alt }) {
       className="aspect-square rounded-xl bg-[#0E1012]"
     >
       <div>
-        <AlbumImage src={src} alt={alt} />
+        <AlbumImage src={src} alt={alt} spotifyId={spotifyId} />
       </div>
     </div>
   );

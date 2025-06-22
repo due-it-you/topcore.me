@@ -3,11 +3,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :albums, only: %i[create] do
+      resources :albums, only: %i[] do
         collection do
           get :search
         end
       end
+      resources :profile_cards, only: %i[create show]
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

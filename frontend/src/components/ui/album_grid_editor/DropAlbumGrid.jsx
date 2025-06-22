@@ -9,7 +9,7 @@ export default function DropAlbumGrid({ assignedAlbums }) {
           {assignedAlbums.map((album) => {
             return (
               <div key={album.id}>
-                <Album id={album.id} src={album.src} alt={album.alt} />
+                <Album id={album.id} src={album.src} alt={album.alt} spotifyId={album.spotifyId} />
               </div>
             );
           })}
