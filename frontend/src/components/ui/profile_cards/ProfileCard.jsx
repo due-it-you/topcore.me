@@ -11,6 +11,7 @@ export default function ProfileCard() {
   const [displayName, setDisplayName] = useState(null);
   const [gridRows, setGridRows] = useState(null);
   const [gridColumns, setGridColumns] = useState(null);
+  const [avatar, setAvatar] = useState(null);
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(`/profile_cards/${params.slug}`);
@@ -19,6 +20,7 @@ export default function ProfileCard() {
       setDisplayName(response.data.profileCard.displayName);
       setGridRows(response.data.profileCard.gridRows);
       setGridColumns(response.data.profileCard.gridColumns);
+      setAvatar(response.data.profileCard.avatar.url);
     }
 
     fetchData();
