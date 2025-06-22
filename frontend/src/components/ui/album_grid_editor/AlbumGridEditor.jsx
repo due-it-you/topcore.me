@@ -72,7 +72,7 @@ export default function AlbumGridEditor({
                   {step === 'form' && (
                     <>
                       <DialogHeader>
-                        <Progress value="63" className="w-full" />
+                        <Progress value={progress} className="w-full" />
                         <DialogTitle>アイコンの設定（任意）</DialogTitle>
                       </DialogHeader>
                       <div>
