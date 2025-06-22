@@ -105,6 +105,13 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (12.0.0)
+    carrierwave (3.1.2)
+      activemodel (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      addressable (~> 2.6)
+      image_processing (~> 1.1)
+      marcel (~> 1.0.0)
+      ssrf_filter (~> 1.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.3)
@@ -121,6 +128,8 @@ GEM
     drb (2.2.3)
     erb (5.0.1)
     erubi (1.13.1)
+    excon (1.2.7)
+      logger
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -132,6 +141,22 @@ GEM
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
+    fog-aws (3.24.0)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
+    fog-core (2.6.0)
+      builder
+      excon (~> 1.0)
+      formatador (>= 0.2, < 2.0)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    fog-xml (0.1.5)
+      fog-core
+      nokogiri (>= 1.5.11, < 2.0.0)
+    formatador (1.1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     http (5.3.1)
@@ -144,6 +169,9 @@ GEM
     http-form_data (2.3.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    image_processing (1.14.0)
+      mini_magick (>= 4.9.5, < 6)
+      ruby-vips (>= 2.0.17, < 3)
     io-console (0.8.0)
     irb (1.15.2)
       pp (>= 0.6.0)
@@ -167,9 +195,17 @@ GEM
       net-smtp
     marcel (1.0.4)
     method_source (1.1.0)
+    mime-types (3.7.0)
+      logger
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2025.0617)
+    mini_magick (5.2.0)
+      benchmark
+      logger
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
+    multi_json (1.15.0)
     net-imap (0.5.8)
       date
       net-protocol
@@ -297,11 +333,15 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
+    ruby-vips (2.2.4)
+      ffi (~> 1.12)
+      logger
     securerandom (0.4.1)
     solid_cache (1.0.7)
       activejob (>= 7.2)
       activerecord (>= 7.2)
       railties (>= 7.2)
+    ssrf_filter (1.3.0)
     stringio (3.1.7)
     thor (1.3.2)
     timeout (0.4.3)
@@ -334,8 +374,10 @@ DEPENDENCIES
   bootsnap
   brakeman
   bullet
+  carrierwave (~> 3.0)
   debug
   dotenv-rails
+  fog-aws
   http
   pg (~> 1.1)
   pry-byebug

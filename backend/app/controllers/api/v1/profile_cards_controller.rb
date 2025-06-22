@@ -43,7 +43,8 @@ class Api::V1::ProfileCardsController < ApplicationController
       bg_color: profile_card.bg_color,
       display_name: profile_card.display_name,
       grid_rows: profile_card.grid_rows,
-      grid_columns: profile_card.grid_columns
+      grid_columns: profile_card.grid_columns,
+      avatar: profile_card.avatar
     }
     render json: { profile_card: profile_card, albums: albums }
   end
@@ -51,8 +52,8 @@ class Api::V1::ProfileCardsController < ApplicationController
   private
 
   def profile_cards_params
-    params.require(:params).permit(
-      profile_cards: [:display_name, :bg_color, :grid_rows, :grid_columns],
+    params.permit(
+      profile_cards: [:display_name, :bg_color, :grid_rows, :grid_columns, :avatar],
       albums: [:id, :src, :alt, :spotify_id]
     )
   end

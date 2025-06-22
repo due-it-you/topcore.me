@@ -24,6 +24,7 @@ export default function AlbumGridEditor({
   setColor,
   onGenerateLinkButtonClick,
   setDisplayName,
+  setAvatarBlob,
   disabledCreateSettingButton,
   step,
   slug,
@@ -72,7 +73,7 @@ export default function AlbumGridEditor({
                         <DialogTitle>アイコンの設定（任意）</DialogTitle>
                       </DialogHeader>
                       <div>
-                        <Uploader />
+                        <Uploader setAvatarBlob={setAvatarBlob} />
                       </div>
                       <DialogHeader className="mt-4">
                         <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>

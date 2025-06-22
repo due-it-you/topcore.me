@@ -22,6 +22,8 @@ export default function CreateGridBody({ color, setColor }) {
   );
   //プロフィールカードのリンクのためのslug
   const [slug, setSlug] = useState(null);
+  // プロフィールカードの画像データ
+  const [avatarBlob, setAvatarBlob] = useState(null);
   // プロフィールカードに表示されるユーザー名
   const [displayName, setDisplayName] = useState('');
   // ドラッグしている対象の状態管理
@@ -122,15 +124,28 @@ export default function CreateGridBody({ color, setColor }) {
 
   // プロフィールカードのリンク生成
   async function onGenerateLinkButtonClick() {
-    const res = await axios.post('/profile_cards', {
-      params: {
-        profileCards: { displayName: displayName, bgColor: color, gridRows: 3, gridColumns: 3 },
-        albums: assignedAlbums,
-      },
+    const formData = new FormData();
+    formData.append('profile_cards[display_name]', displayName);
+    formData.append('profile_cards[bg_color]', color);
+    formData.append('profile_cards[grid_rows]', 3);
+    formData.append('profile_cards[grid_columns]', 3);
+
+    assignedAlbums.forEach((album, index) => {
+      formData.append(`albums[][id]`, album.id);
+      formData.append(`albums[][src]`, album.src);
+      formData.append(`albums[][alt]`, album.alt);
+      formData.append(`albums[][spotify_id]`, album.spotifyId);
+    });
+
+    if (avatarBlob) {
+      formData.append('profile_cards[avatar]', avatarBlob, 'avatar.jpg');
+    }
+    const res = await axios.post('/profile_cards', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
     });
     // slugがあればslugを渡してモーダルのステップを進める。 なければエラーを表示する。
     if (res.data.slug) {
-      setSlug(res.data.slug)
+      setSlug(res.data.slug);
       setStep('success');
     } else {
       setStep('error');
@@ -159,6 +174,7 @@ export default function CreateGridBody({ color, setColor }) {
             assignedAlbums={assignedAlbums}
             color={color}
             setColor={setColor}
+            setAvatarBlob={setAvatarBlob}
             onGenerateLinkButtonClick={onGenerateLinkButtonClick}
             setDisplayName={setDisplayName}
             disabledCreateSettingButton={disabledCreateSettingButton}
