@@ -17,6 +17,7 @@ import { Input } from '../input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 import toast, { Toaster } from 'react-hot-toast';
+import { Progress } from '@/components/ui/progress';
 
 export default function AlbumGridEditor({
   assignedAlbums,
@@ -28,6 +29,7 @@ export default function AlbumGridEditor({
   disabledCreateSettingButton,
   step,
   slug,
+  progress,
 }) {
   const [disabledGenerateLinkButton, setDisabledGenerateLinkButton] = useState(true);
   function handleDisplayNameChange(e) {
@@ -42,16 +44,18 @@ export default function AlbumGridEditor({
     const txt = document.getElementById('txt');
     navigator.clipboard.writeText(txt.textContent).then(
       () => {
-        toast.success('コピーが完了しました！')
+        toast.success('コピーが完了しました！');
       },
       () => {
-        toast.error('コピーが失敗しました...')
+        toast.error('コピーが失敗しました...');
       },
     );
   }
   return (
     <div className="flex h-screen w-3/5 items-center justify-center">
-      <div><Toaster /></div>
+      <div>
+        <Toaster />
+      </div>
       <div className="mx-4 flex aspect-square w-3/4">
         <div className="h-full p-12">
           <DropAlbumGrid assignedAlbums={assignedAlbums} />
@@ -97,6 +101,18 @@ export default function AlbumGridEditor({
                         </Button>
                       </DialogFooter>
                     </>
+                  )}
+                  {step === 'progress' && (
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-2xl font-bold">作成中...</div>
+                          <div className="mt-2">
+                            <Progress value={progress} className="w-full" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   )}
                   {step === 'success' && (
                     <div>
