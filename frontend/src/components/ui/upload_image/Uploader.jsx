@@ -58,7 +58,7 @@ const Uploader = ({ setAvatarBlob }) => {
 
   return (
     <div className="flex">
-      <div className="mx-auto mt-4 flex w-full max-w-xl items-center justify-center space-y-4">
+      <div className="mx-auto lg:mt-4 flex w-full max-w-xl items-center justify-center space-y-4">
         {/* アップロードした画像が表示される場所 */}
         <div
           className="mt-4 mr-4 relative overflow-hidden rounded border border-gray-400 bg-gray-100"
