@@ -167,7 +167,7 @@ export default function CreateGridBody({ color, setColor }) {
   }
   return (
     <>
-      <div className="flex md:px-16">
+      <div className="md:flex md:px-16">
         <DndContext
           sensors={sensors}
           collisionDetection={pointerWithin}
