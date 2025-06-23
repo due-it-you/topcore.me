@@ -54,6 +54,11 @@ https://github.com/user-attachments/assets/f59f1971-f612-431f-83c3-a16fbbae452d
 ### ▶︎プロフィールカード詳細表示
 https://github.com/user-attachments/assets/948aa7d8-7547-47d7-bbb6-cd39bccfc77b
 
+#### アルバムをクリックするとSpotifyのアルバムページに遷移して音楽を聴ける機能
+https://github.com/user-attachments/assets/c4ee0ec1-747f-439d-b60f-bc24aa671dc9
+
+
+
 ## 💻 使用技術
 | カテゴリ  | 使用技術 |
 | ------------- | ------------- |
