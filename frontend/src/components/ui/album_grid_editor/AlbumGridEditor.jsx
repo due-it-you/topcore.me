@@ -52,13 +52,15 @@ export default function AlbumGridEditor({
     );
   }
   return (
-    <div className="flex h-screen w-3/5 items-center justify-center">
+    <div className="order-1 mb-4 w-full items-center justify-center lg:order-2 lg:mb-0 lg:flex lg:h-screen lg:w-3/5">
       <div>
         <Toaster />
       </div>
-      <div className="mx-4 flex aspect-square w-3/4">
-        <div className="h-full p-12">
-          <DropAlbumGrid assignedAlbums={assignedAlbums} />
+      <div className="lg:mx-4 lg:flex lg:aspect-square lg:w-3/4">
+        <div className="h-full lg:p-12">
+          <div className="flex justify-center mt-12 lg:mt-0">
+            <DropAlbumGrid assignedAlbums={assignedAlbums} />
+          </div>
           <div className="mt-4 text-right">
             <Dialog>
               <form>
@@ -70,17 +72,21 @@ export default function AlbumGridEditor({
                     作成へ進む
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="border border-[#646464] bg-[#151A1E] p-12 text-white">
+                <DialogContent className="border border-[#646464] bg-[#151A1E] p-8 text-white lg:p-12">
                   {step === 'form' && (
                     <>
                       <DialogHeader>
-                        <DialogTitle>アイコンの設定（任意）</DialogTitle>
+                        <DialogTitle className="text-md lg:text-xl">
+                          アイコンの設定（任意）
+                        </DialogTitle>
                       </DialogHeader>
                       <div>
                         <Uploader setAvatarBlob={setAvatarBlob} />
                       </div>
                       <DialogHeader className="mt-4">
-                        <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>
+                        <DialogTitle className="text-md lg:text-xl">
+                          表示するユーザ名の設定（必須）
+                        </DialogTitle>
                       </DialogHeader>
                       <div>
                         <Input onChange={handleDisplayNameChange} />
@@ -117,19 +123,21 @@ export default function AlbumGridEditor({
                   {step === 'success' && (
                     <div>
                       <DialogHeader className="mt-4">
-                        <DialogTitle className="text-xl">
+                        <DialogTitle className="text-sm lg:text-xl">
                           リンクの生成が完了しました！🎉
                         </DialogTitle>
                         <DialogDescription className="text-md font-semibold">
                           コピーしてSNSのプロフィールに貼りましょう!!
                         </DialogDescription>
                       </DialogHeader>
-                      <div className="mt-4 rounded-xl bg-gray-800 text-xl text-white">
+                      <div className="mt-4 rounded-xl bg-gray-800 text-sm text-white lg:text-xl">
                         <div className="flex items-center justify-between p-4">
-                          <div id="txt">https://topcore.me/music/{slug}</div>
+                          <div id="txt" className="">
+                            https://topcore.me/music/{slug}
+                          </div>
                           <button
                             onClick={onCopyClipboardClick}
-                            className="aspect-square h-8 rounded-sm bg-white text-black hover:bg-gray-200"
+                            className="aspect-square h-6 rounded-sm bg-white text-black hover:bg-gray-200 lg:h-8"
                           >
                             <FontAwesomeIcon icon={faClipboard} />
                           </button>
@@ -142,7 +150,7 @@ export default function AlbumGridEditor({
             </Dialog>
           </div>
         </div>
-        <div className="h-full w-1/4">
+        <div className="h-full lg:w-1/4">
           <ColorPalette color={color} setColor={setColor} />
         </div>
       </div>

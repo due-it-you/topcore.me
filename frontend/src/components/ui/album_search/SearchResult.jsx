@@ -10,7 +10,7 @@ export default function SearchResult({ albums, isDragging, activeId, activeAlt, 
           {albums
             ? albums.map((album, index) => {
                 return (
-                  <div key={album.spotifyId}>
+                  <div key={album.spotifyId} className="touch-none">
                     <Draggable id={index}>
                       <AlbumImage src={album.imageUrl} alt={album.name} />
                     </Draggable>
