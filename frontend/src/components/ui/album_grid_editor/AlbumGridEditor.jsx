@@ -74,13 +74,13 @@ export default function AlbumGridEditor({
                   {step === 'form' && (
                     <>
                       <DialogHeader>
-                        <DialogTitle>アイコンの設定（任意）</DialogTitle>
+                        <DialogTitle className="text-md md:text-xl">アイコンの設定（任意）</DialogTitle>
                       </DialogHeader>
                       <div>
                         <Uploader setAvatarBlob={setAvatarBlob} />
                       </div>
                       <DialogHeader className="mt-4">
-                        <DialogTitle>表示するユーザ名の設定（必須）</DialogTitle>
+                        <DialogTitle className="text-md md:text-xl">表示するユーザ名の設定（必須）</DialogTitle>
                       </DialogHeader>
                       <div>
                         <Input onChange={handleDisplayNameChange} />
