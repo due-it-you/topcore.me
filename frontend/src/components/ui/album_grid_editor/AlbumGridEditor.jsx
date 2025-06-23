@@ -70,7 +70,7 @@ export default function AlbumGridEditor({
                     作成へ進む
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="border border-[#646464] bg-[#151A1E] p-12 text-white">
+                <DialogContent className="border border-[#646464] bg-[#151A1E] p-8 md:p-12 text-white">
                   {step === 'form' && (
                     <>
                       <DialogHeader>
@@ -117,19 +117,19 @@ export default function AlbumGridEditor({
                   {step === 'success' && (
                     <div>
                       <DialogHeader className="mt-4">
-                        <DialogTitle className="text-xl">
+                        <DialogTitle className="text-sm md:text-xl">
                           リンクの生成が完了しました！🎉
                         </DialogTitle>
                         <DialogDescription className="text-md font-semibold">
                           コピーしてSNSのプロフィールに貼りましょう!!
                         </DialogDescription>
                       </DialogHeader>
-                      <div className="mt-4 rounded-xl bg-gray-800 text-xl text-white">
+                      <div className="mt-4 rounded-xl bg-gray-800 text-sm md:text-xl text-white">
                         <div className="flex items-center justify-between p-4">
-                          <div id="txt">https://topcore.me/music/{slug}</div>
+                          <div id="txt" className="">https://topcore.me/music/{slug}</div>
                           <button
                             onClick={onCopyClipboardClick}
-                            className="aspect-square h-8 rounded-sm bg-white text-black hover:bg-gray-200"
+                            className="aspect-square h-6 md:h-8 rounded-sm bg-white text-black hover:bg-gray-200"
                           >
                             <FontAwesomeIcon icon={faClipboard} />
                           </button>
