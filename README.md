@@ -67,3 +67,11 @@ https://github.com/user-attachments/assets/948aa7d8-7547-47d7-bbb6-cd39bccfc77b
 | 外部API  | Spotify Web API  |
 | インフラ  | Render(Rails API), Vercel(React)  |
 | 開発環境  | Docker  |
+
+## ER図
+![スクリーンショット 2025-06-24 1 49 00](https://github.com/user-attachments/assets/f6308df3-cc35-4fef-8050-fc9251d3a350)
+
+## 画面遷移図
+URL => https://www.figma.com/design/4UWd5cRv1wpNC2I3WmDc5o/topcore.me?t=l0ytua9whTPobQv5-1
+
+![スクリーンショット 2025-06-24 1 50 43](https://github.com/user-attachments/assets/66dd21b7-e4ee-4dd0-9e54-5a6a6fe3b17f)
