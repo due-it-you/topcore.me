@@ -56,7 +56,7 @@ export default function AlbumGridEditor({
       <div>
         <Toaster />
       </div>
-      <div className="mx-4 flex aspect-square w-3/4">
+      <div className="md:mx-4 flex aspect-square w-3/4">
         <div className="h-full p-12">
           <DropAlbumGrid assignedAlbums={assignedAlbums} />
           <div className="mt-4 text-right">
