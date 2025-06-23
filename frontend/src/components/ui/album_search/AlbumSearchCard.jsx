@@ -12,7 +12,7 @@ export default function AlbumSearchCard({
   isDragging,
 }) {
   return (
-    <div className="order-2 h-screen w-80 lg:order-1 lg:flex lg:w-2/5 lg:items-center">
+    <div className="order-2 h-screen w-full lg:order-1 lg:flex lg:w-2/5 lg:items-center">
       <div className="h-4/5 w-full rounded-xl border border-[#2D2D2D] bg-[#1E1E1E] shadow-xl shadow-gray-900 md:mx-4">
         <div className="h-full p-12">
           <SearchBar onSearchClick={onSearchClick} setSearchAlbumInput={setSearchAlbumInput} />
