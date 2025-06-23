@@ -3,8 +3,10 @@ import axios from './../../../api/lib/apiClient';
 import {
   DndContext,
   closestCenter,
+  pointerWithin,
   KeyboardSensor,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
@@ -16,6 +18,7 @@ export default function CreateGridBody({ color, setColor }) {
   const [disabledCreateSettingButton, setDisabledCreateSettingButton] = useState(true);
   const sensors = useSensors(
     useSensor(PointerSensor),
+    useSensor(TouchSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
@@ -164,10 +167,10 @@ export default function CreateGridBody({ color, setColor }) {
   }
   return (
     <>
-      <div className="flex px-16">
+      <div className="flex flex-col items-center justify-center px-4 lg:flex-row lg:items-start lg:justify-start lg:px-16">
         <DndContext
           sensors={sensors}
-          collisionDetection={closestCenter}
+          collisionDetection={pointerWithin}
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
