@@ -52,7 +52,7 @@ export default function AlbumGridEditor({
     );
   }
   return (
-    <div className="order-1 mb-32 md:h-screen w-full items-center justify-center md:order-2 md:flex md:w-3/5">
+    <div className="order-1 mb-32 md:mb-0 md:h-screen w-full items-center justify-center md:order-2 md:flex md:w-3/5">
       <div>
         <Toaster />
       </div>
