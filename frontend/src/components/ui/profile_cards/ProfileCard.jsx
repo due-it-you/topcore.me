@@ -31,7 +31,7 @@ export default function ProfileCard() {
       <Layout color={bgColor}>
         <Header />
         <div className="flex min-h-screen items-center justify-center">
-          <div className="aspect-square w-110">
+          <div className="aspect-square w-5/6 lg:w-110">
             <div className="grid grid-cols-3 grid-rows-3 gap-2">
               {albums &&
                 albums.map((album, index) => {
