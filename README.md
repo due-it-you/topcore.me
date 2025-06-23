@@ -64,5 +64,6 @@ https://github.com/user-attachments/assets/948aa7d8-7547-47d7-bbb6-cd39bccfc77b
 | JS静的解析ツール  | ESLint  |
 | 自動フォーマッター  | Prettier  |
 | クラウドストレージサービス  | AWS S3 |
+| 外部API  | Spotify Web API  |
 | インフラ  | Render(Rails API), Vercel(React)  |
-| API  | Spotify Web API  |
+| 開発環境  | Docker  |
