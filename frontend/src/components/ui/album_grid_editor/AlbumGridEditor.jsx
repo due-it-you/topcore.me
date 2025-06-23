@@ -52,12 +52,12 @@ export default function AlbumGridEditor({
     );
   }
   return (
-    <div className="order-1 mb-32 md:mb-0 md:h-screen w-full items-center justify-center md:order-2 md:flex md:w-3/5">
+    <div className="order-1 mb-4 md:mb-0 md:h-screen w-full items-center justify-center md:order-2 md:flex md:w-3/5">
       <div>
         <Toaster />
       </div>
-      <div className="flex aspect-square w-3/4 md:mx-4">
-        <div className="h-full p-12">
+      <div className="md:flex md:aspect-square md:w-3/4 md:mx-4">
+        <div className="h-full px-12 pt-12 md:p-12">
           <DropAlbumGrid assignedAlbums={assignedAlbums} />
           <div className="mt-4 text-right">
             <Dialog>
@@ -142,7 +142,7 @@ export default function AlbumGridEditor({
             </Dialog>
           </div>
         </div>
-        <div className="h-full w-1/4">
+        <div className="h-full md:w-1/4">
           <ColorPalette color={color} setColor={setColor} />
         </div>
       </div>
