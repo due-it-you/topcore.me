@@ -54,17 +54,15 @@ https://github.com/user-attachments/assets/f59f1971-f612-431f-83c3-a16fbbae452d
 ### ▶︎プロフィールカード詳細表示
 https://github.com/user-attachments/assets/948aa7d8-7547-47d7-bbb6-cd39bccfc77b
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 💻 使用技術
+| カテゴリ  | 使用技術 |
+| ------------- | ------------- |
+| フロントエンド  | React/react-router v7(declarative mode)/TailwindCSS/shadcn-ui/dnd-kit |
+| バックエンド  | Rails API 7.2.2 /Ruby 3.4.4 |
+| データベース  | PostgreSQL  |
+| ビルドツール  | Vite  |
+| JS静的解析ツール  | ESLint  |
+| 自動フォーマッター  | Prettier  |
+| クラウドストレージサービス  | AWS S3 |
+| インフラ  | Render(Rails API), Vercel(React)  |
+| API  | Spotify Web API  |
