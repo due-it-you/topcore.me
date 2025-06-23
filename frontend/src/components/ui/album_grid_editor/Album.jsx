@@ -11,6 +11,7 @@ export default function Album({ id, src, alt, spotifyId }) {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.3 : 1,
+    touchAction: 'none',
   };
 
   return (
