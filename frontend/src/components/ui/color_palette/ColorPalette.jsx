@@ -2,7 +2,7 @@ import Color from './Color';
 
 export default function ColorPalette({ color, setColor }) {
   return (
-    <div className="mt-8 flex h-2/3 w-3/5 justify-center rounded-2xl bg-[#151A1E]">
+    <div className="mt-8 hidden md:flex h-2/3 w-3/5 justify-center rounded-2xl bg-[#151A1E]">
       <div className="my-4 grid grid-cols-1 gap-1">
         <Color color={'#121212'} setColor={setColor} />
         <Color color={'#3E7CB6'} setColor={setColor} />
