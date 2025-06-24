@@ -143,7 +143,7 @@ export default function AlbumGridEditor({
                         </div>
                       </div>
                       <a
-                        href={'https://twitter.com/intent/tweet?text=https://topcore.me/music/' + slug}
+                        href={'https://twitter.com/intent/tweet?hashtags=好きな音楽アルバムを集めたプロフィールカードを作ってみた&text=https://topcore.me/music/' + slug }
                         target="_blank"
                         rel="noopener noreferrer"
                       >
