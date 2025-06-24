@@ -142,14 +142,20 @@ export default function AlbumGridEditor({
                           </button>
                         </div>
                       </div>
-                      <div className="flex justify-center">
-                        <div className="mt-8 flex items-center justify-center bg-black font-medium px-4 py-2 rounded-2xl">
-                          <div className="mr-2">
-                            <FaSquareXTwitter color="white" size="2em" />
+                      <a
+                        href={'https://twitter.com/intent/tweet?text=https://topcore.me/music/' + slug}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <div className="flex justify-center">
+                          <div className="mt-8 flex items-center justify-center rounded-2xl bg-black px-4 py-2 font-medium">
+                            <div className="mr-2">
+                              <FaSquareXTwitter color="white" size="2em" />
+                            </div>
+                            <div className="text-md text-white">Xでリンクをシェア</div>
                           </div>
-                          <div className="text-md text-white">Xでリンクをシェア</div>
                         </div>
-                      </div>
+                      </a>
                     </div>
                   )}
                 </DialogContent>
