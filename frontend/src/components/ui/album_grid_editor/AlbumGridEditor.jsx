@@ -16,6 +16,7 @@ import DropAlbumGrid from './DropAlbumGrid';
 import { Input } from '../input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { FaSquareXTwitter } from 'react-icons/fa6';
 import toast, { Toaster } from 'react-hot-toast';
 import { Progress } from '@/components/ui/progress';
 
@@ -58,7 +59,7 @@ export default function AlbumGridEditor({
       </div>
       <div className="lg:mx-4 lg:flex lg:aspect-square lg:w-3/4">
         <div className="h-full lg:p-12">
-          <div className="flex justify-center mt-12 lg:mt-0">
+          <div className="mt-12 flex justify-center lg:mt-0">
             <DropAlbumGrid assignedAlbums={assignedAlbums} />
           </div>
           <div className="mt-4 text-right">
@@ -132,15 +133,21 @@ export default function AlbumGridEditor({
                       </DialogHeader>
                       <div className="mt-4 rounded-xl bg-gray-800 text-sm text-white lg:text-xl">
                         <div className="flex items-center justify-between p-4">
-                          <div id="txt" className="">
-                            https://topcore.me/music/{slug}
-                          </div>
+                          <div id="txt">https://topcore.me/music/{slug}</div>
                           <button
                             onClick={onCopyClipboardClick}
                             className="aspect-square h-6 rounded-sm bg-white text-black hover:bg-gray-200 lg:h-8"
                           >
                             <FontAwesomeIcon icon={faClipboard} />
                           </button>
+                        </div>
+                      </div>
+                      <div className="flex justify-center">
+                        <div className="mt-8 flex items-center justify-center bg-black font-medium px-4 py-2 rounded-2xl">
+                          <div className="mr-2">
+                            <FaSquareXTwitter color="white" size="2em" />
+                          </div>
+                          <div className="text-md text-white">Xでリンクをシェア</div>
                         </div>
                       </div>
                     </div>
