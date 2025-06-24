@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from './../../../api/lib/apiClient';
 import {
   DndContext,
-  closestCenter,
   pointerWithin,
   KeyboardSensor,
-  PointerSensor,
+  MouseSensor,
   TouchSensor,
   useSensor,
   useSensors,
@@ -17,8 +16,17 @@ import AlbumGridEditor from '../ui/album_grid_editor/AlbumGridEditor';
 export default function CreateGridBody({ color, setColor }) {
   const [disabledCreateSettingButton, setDisabledCreateSettingButton] = useState(true);
   const sensors = useSensors(
-    useSensor(PointerSensor),
-    useSensor(TouchSensor),
+    useSensor(MouseSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 250,
+        tolerance: 8,
+      },
+    }),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
