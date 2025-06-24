@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from './../../../api/lib/apiClient';
 import {
   DndContext,
@@ -55,6 +55,12 @@ export default function CreateGridBody({ color, setColor }) {
   // [ユーザー名, 画像アイコン]の設定モーダル -> 生成されたリンクの表示モーダル のステップの管理
   const [step, setStep] = useState('form');
 
+  useEffect(() => {
+    // 全てのグリッドのマスにアルバムが割り当てられているかのチェック
+    const allAssigned = assignedAlbums.every((album) => album.src && album.alt && album.spotifyId);
+    setDisabledCreateSettingButton(!allAssigned);
+  }, [assignedAlbums]);
+
   async function onSearchClick() {
     const res = await axios.get('/albums/search', { params: { name: searchAlbumInput } });
     const albums = res.data.searchedAlbums;
@@ -110,20 +116,6 @@ export default function CreateGridBody({ color, setColor }) {
       const newIndex = assignedAlbums.findIndex((album) => album.id === over.id);
       const reordered = arrayMove(assignedAlbums, oldIndex, newIndex);
       setAssignedAlbums(reordered);
-    }
-
-    // グリッドの中に全てアルバムが割り当てられた時のみ、作成へ進む]ボタンを有効化
-    let assignedCellCount = 0;
-    assignedAlbums.forEach((album) => {
-      if (album.src && album.alt && album.spotifyId) {
-        assignedCellCount++;
-      }
-    });
-
-    if (assignedCellCount === assignedAlbums.length - 1) {
-      setDisabledCreateSettingButton(false);
-    } else {
-      setDisabledCreateSettingButton(true);
     }
   }
 
