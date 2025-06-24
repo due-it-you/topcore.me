@@ -51,6 +51,11 @@ https://github.com/user-attachments/assets/554d6e20-8e59-4337-80f8-2c68ada2c0ac
 #### クリップボードへのコピー機能
 https://github.com/user-attachments/assets/f59f1971-f612-431f-83c3-a16fbbae452d
 
+#### Xツイートでのリンクシェア機能
+https://github.com/user-attachments/assets/69ae1bda-5e34-49bc-ac36-7eb05649a1d5
+
+
+
 ### ▶︎プロフィールカード詳細表示
 https://github.com/user-attachments/assets/948aa7d8-7547-47d7-bbb6-cd39bccfc77b
 
