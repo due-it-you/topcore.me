@@ -231,7 +231,7 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>③アルバムの位置の入れ替え</DialogTitle>
+                    <DialogTitle>④アルバムの位置の入れ替え</DialogTitle>
                     <DialogDescription className="mt-2">
                       <p>アルバムをドラッグして移動すると、</p>
                       <p>アルバムの位置を簡単に入れ替えられます！</p>
