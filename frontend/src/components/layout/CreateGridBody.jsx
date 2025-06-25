@@ -204,6 +204,9 @@ export default function CreateGridBody({ color, setColor }) {
                     <DialogTitle>
                       <h1>①アルバムの検索</h1>
                     </DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>アーティスト名, 曲名などからアルバムを検索できます！</p>
+                    </DialogDescription>
                       <div className="mt-4">
                         <img src="/carousel/carousel_1.gif"></img>
                       </div>
