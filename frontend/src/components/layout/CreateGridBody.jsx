@@ -230,6 +230,16 @@ export default function CreateGridBody({ color, setColor }) {
                       <img src="/carousel/carousel_3.gif"></img>
                     </div>
                   </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>③アルバムの位置の入れ替え</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>アルバムをドラッグして移動すると、</p>
+                      <p>アルバムの位置を簡単に入れ替えられます！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_4.gif"></img>
+                    </div>
+                  </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
