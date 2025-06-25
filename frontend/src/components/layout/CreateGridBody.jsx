@@ -198,6 +198,7 @@ export default function CreateGridBody({ color, setColor }) {
         >
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent className="border border-[#646464] bg-[#151A1E] text-white lg:p-12">
+              <div className="text-xl font-bold">使い方の説明</div>
               <Carousel className="lg:m-4">
                 <CarouselContent className="mt-4">
                   <CarouselItem>
