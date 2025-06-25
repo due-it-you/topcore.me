@@ -201,59 +201,61 @@ export default function CreateGridBody({ color, setColor }) {
               <Carousel className="lg:m-4">
                 <CarouselContent>
                   <CarouselItem>
-                    <div className="text-2xl font-bold">①アルバムの検索</div>
-                    <div className="mt-2">
-                      <p>アーティスト名, 曲名などからアルバムを検索できます！</p>
-                    </div>
+                    <DialogTitle>
+                      <div>①アルバムの検索</div>
+                    </DialogTitle>
+                    <DialogDescription className="mt-2">
+                      アーティスト名, 曲名などからアルバムを検索できます！
+                    </DialogDescription>
                     <div className="mt-4">
                       <img src="/carousel/carousel_1.gif"></img>
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="text-2xl font-bold">②アルバムの割り当て</div>
-                    <div className="mt-2">
-                      <p>ドラッグ&ドロップでアルバムを割り当てられます！</p>
-                      <p>すでにアルバムがあるところにドロップすると上書きされます</p>
-                    </div>
+                    <DialogTitle>②アルバムの割り当て</DialogTitle>
+                    <DialogDescription className="mt-2">
+                    ドラッグ&ドロップでアルバムを割り当てられます！
+                    すでにアルバムがあるところにドロップすると上書きされます
+                    </DialogDescription>
                     <div className="mt-4">
                       <img src="/carousel/carousel_2.gif"></img>
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="text-2xl font-bold">③背景色の変更</div>
-                    <div className="mt-2">
-                      <p>プロフィールカードの背景色を好きに選択できます！</p>
-                    </div>
+                    <DialogTitle>③背景色の変更</DialogTitle>
+                    <DialogDescription className="mt-2">
+                    プロフィールカードの背景色を好きに選択できます！
+                    </DialogDescription>
                     <div className="mt-4">
                       <img src="/carousel/carousel_3.gif"></img>
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="text-2xl font-bold">④アルバムの位置の入れ替え</div>
-                    <div className="mt-2">
-                      <p>アルバムをドラッグして移動すると、</p>
-                      <p>アルバムの位置を簡単に入れ替えられます！</p>
-                    </div>
+                    <DialogTitle>④アルバムの位置の入れ替え</DialogTitle>
+                    <DialogDescription className="mt-2">
+                    アルバムをドラッグして移動すると、
+                    アルバムの位置を簡単に入れ替えられます！
+                    </DialogDescription>
                     <div className="mt-4">
                       <img src="/carousel/carousel_4.gif"></img>
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="text-2xl font-bold">⑤プロフィールカードのリンク作成</div>
-                    <div className="mt-2">
-                      <p>アルバムの割り当てが完了したら「作成へ進む」ボタンから</p>
-                      <p>プロフィールカードの作成が出来ます！</p>
-                    </div>
+                    <DialogTitle>⑤プロフィールカードのリンク作成</DialogTitle>
+                    <DialogDescription className="mt-2">
+                    アルバムの割り当てが完了したら「作成へ進む」ボタンから
+                    プロフィールカードの作成が出来ます！
+                    </DialogDescription>
                     <div className="mt-4">
                       <img src="/carousel/carousel_5.gif"></img>
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="text-2xl font-bold">⑥SNSのbioにリンクを貼る</div>
-                    <div className="mt-2">
-                      <p>リンクをコピーしてX, Instagramなどのbioに</p>
-                      <p>リンクを貼り付けて完了です！！</p>
-                    </div>
+                    <DialogTitle>⑥SNSのbioにリンクを貼る</DialogTitle>
+                    <DialogDescription className="mt-2">
+                    リンクをコピーしてX, Instagramなどのbioに
+                    リンクを貼り付けて完了です！！
+                    </DialogDescription>
                     <div className="mt-4">
                       <img className="rounded-2xl" src="/carousel/carousel_6_x.png"></img>
                       <img
