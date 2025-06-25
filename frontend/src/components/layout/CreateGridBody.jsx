@@ -201,9 +201,7 @@ export default function CreateGridBody({ color, setColor }) {
               <Carousel className="lg:m-4">
                 <CarouselContent>
                   <CarouselItem>
-                    <DialogTitle>
-                      <DialogTitle>①アルバムの検索</DialogTitle>
-                    </DialogTitle>
+                    <div className="text-2xl font-bold">①アルバムの検索</div>
                     <div className="mt-2">
                       <p>アーティスト名, 曲名などからアルバムを検索できます！</p>
                     </div>
@@ -212,7 +210,7 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>②アルバムの割り当て</DialogTitle>
+                    <div className="text-2xl font-bold">②アルバムの割り当て</div>
                     <div className="mt-2">
                       <p>ドラッグ&ドロップでアルバムを割り当てられます！</p>
                       <p>すでにアルバムがあるところにドロップすると上書きされます</p>
@@ -222,7 +220,7 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>③背景色の変更</DialogTitle>
+                    <div className="text-2xl font-bold">③背景色の変更</div>
                     <div className="mt-2">
                       <p>プロフィールカードの背景色を好きに選択できます！</p>
                     </div>
@@ -231,7 +229,7 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>④アルバムの位置の入れ替え</DialogTitle>
+                    <div className="text-2xl font-bold">④アルバムの位置の入れ替え</div>
                     <div className="mt-2">
                       <p>アルバムをドラッグして移動すると、</p>
                       <p>アルバムの位置を簡単に入れ替えられます！</p>
@@ -241,7 +239,7 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>⑤プロフィールカードのリンク作成</DialogTitle>
+                    <div className="text-2xl font-bold">⑤プロフィールカードのリンク作成</div>
                     <div className="mt-2">
                       <p>アルバムの割り当てが完了したら「作成へ進む」ボタンから</p>
                       <p>プロフィールカードの作成が出来ます！</p>
@@ -251,7 +249,7 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>⑥SNSのbioにリンクを貼る</DialogTitle>
+                    <div className="text-2xl font-bold">⑥SNSのbioにリンクを貼る</div>
                     <div className="mt-2">
                       <p>リンクをコピーしてX, Instagramなどのbioに</p>
                       <p>リンクを貼り付けて完了です！！</p>
