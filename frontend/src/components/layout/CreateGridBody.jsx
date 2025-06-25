@@ -240,6 +240,16 @@ export default function CreateGridBody({ color, setColor }) {
                       <img src="/carousel/carousel_4.gif"></img>
                     </div>
                   </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>⑤プロフィールカードのリンク作成</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>アルバムの割り当てが完了したら「作成へ進む」ボタンから</p>
+                      <p>プロフィールカードの作成が出来ます！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_5.gif"></img>
+                    </div>
+                  </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
