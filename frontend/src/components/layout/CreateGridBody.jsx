@@ -250,6 +250,16 @@ export default function CreateGridBody({ color, setColor }) {
                       <img src="/carousel/carousel_5.gif"></img>
                     </div>
                   </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>⑥SNSのbioにリンクを貼る</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>リンクをコピーしてX, Instagramなどのbioに</p>
+                      <p>リンクを貼り付けて完了です！！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_6.png"></img>
+                    </div>
+                  </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
