@@ -207,12 +207,19 @@ export default function CreateGridBody({ color, setColor }) {
                     <DialogDescription className="mt-2">
                       <p>アーティスト名, 曲名などからアルバムを検索できます！</p>
                     </DialogDescription>
-                      <div className="mt-4">
-                        <img src="/carousel/carousel_1.gif"></img>
-                      </div>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_1.gif"></img>
+                    </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>使い方２</DialogTitle>
+                    <DialogTitle>②アルバムの割り当て</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>ドラッグ&ドロップでアルバムを割り当てられます！</p>
+                      <p>すでにアルバムがあるところにドロップすると上書きされます</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_2.gif"></img>
+                    </div>
                   </CarouselItem>
                   <CarouselItem>
                     <DialogTitle>使い方３</DialogTitle>
