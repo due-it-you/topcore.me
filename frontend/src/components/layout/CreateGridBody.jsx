@@ -11,6 +11,13 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import {
   DndContext,
   pointerWithin,
   KeyboardSensor,
@@ -191,16 +198,21 @@ export default function CreateGridBody({ color, setColor }) {
         >
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent className="border border-[#646464] bg-[#151A1E] p-8 text-white lg:p-12">
-              <DialogHeader>
-                <DialogTitle>このサイトの使い方</DialogTitle>
-                <DialogDescription>
-                  ・アルバムを検索してドラッグ
-                  <br />
-                  ・グリッドにドロップ
-                  <br />
-                  ・プロフィールカードを生成してSNSでシェア
-                </DialogDescription>
-              </DialogHeader>
+              <Carousel>
+                <CarouselContent>
+                  <CarouselItem>
+                    <DialogTitle>使い方１</DialogTitle>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>使い方２</DialogTitle>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>使い方３</DialogTitle>
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
             </DialogContent>
           </Dialog>
           <AlbumSearchCard
