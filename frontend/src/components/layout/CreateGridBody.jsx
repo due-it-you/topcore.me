@@ -202,7 +202,7 @@ export default function CreateGridBody({ color, setColor }) {
                 <CarouselContent>
                   <CarouselItem>
                     <DialogTitle>
-                      <h1>①アルバムの検索</h1>
+                      <DialogTitle>①アルバムの検索</DialogTitle>
                     </DialogTitle>
                     <DialogDescription className="mt-2">
                       <p>アーティスト名, 曲名などからアルバムを検索できます！</p>
