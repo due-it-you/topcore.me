@@ -257,7 +257,9 @@ export default function CreateGridBody({ color, setColor }) {
                       <p>リンクを貼り付けて完了です！！</p>
                     </DialogDescription>
                     <div className="mt-4">
-                      <img src="/carousel/carousel_6.png"></img>
+                      <img className="rounded-2xl" src="/carousel/carousel_6_x.png"></img>
+                      <img  className="mt-4 rounded-2xl" src="/carousel/carousel_6_instagram.png"></img>
+                      <img  className="mt-4 rounded-2xl" src="/carousel/carousel_6_tiktok.png"></img>
                     </div>
                   </CarouselItem>
                 </CarouselContent>
