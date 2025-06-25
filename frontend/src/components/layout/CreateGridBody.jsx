@@ -1,6 +1,23 @@
 import { useState, useEffect } from 'react';
 import axios from './../../../api/lib/apiClient';
 import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import {
   DndContext,
   pointerWithin,
   KeyboardSensor,
@@ -31,6 +48,8 @@ export default function CreateGridBody({ color, setColor }) {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
   );
+  // shadcnのDialogの表示を制御するステート
+  const [open, setOpen] = useState(false);
   //プロフィールカードのリンクのためのslug
   const [slug, setSlug] = useState(null);
   // プロフィールカードの画像データ
@@ -62,6 +81,10 @@ export default function CreateGridBody({ color, setColor }) {
   ]);
   // [ユーザー名, 画像アイコン]の設定モーダル -> 生成されたリンクの表示モーダル のステップの管理
   const [step, setStep] = useState('form');
+
+  useEffect(() => {
+    setOpen(true);
+  }, []);
 
   useEffect(() => {
     // 全てのグリッドのマスにアルバムが割り当てられているかのチェック
@@ -173,6 +196,78 @@ export default function CreateGridBody({ color, setColor }) {
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogContent className="border border-[#646464] bg-[#151A1E] text-white lg:p-12">
+              <Carousel className="lg:m-4">
+                <CarouselContent>
+                  <CarouselItem>
+                    <DialogTitle>
+                      <h1>①アルバムの検索</h1>
+                    </DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>アーティスト名, 曲名などからアルバムを検索できます！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_1.gif"></img>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>②アルバムの割り当て</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>ドラッグ&ドロップでアルバムを割り当てられます！</p>
+                      <p>すでにアルバムがあるところにドロップすると上書きされます</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_2.gif"></img>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>③背景色の変更</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>プロフィールカードの背景色を好きに選択できます！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_3.gif"></img>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>④アルバムの位置の入れ替え</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>アルバムをドラッグして移動すると、</p>
+                      <p>アルバムの位置を簡単に入れ替えられます！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_4.gif"></img>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>⑤プロフィールカードのリンク作成</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>アルバムの割り当てが完了したら「作成へ進む」ボタンから</p>
+                      <p>プロフィールカードの作成が出来ます！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_5.gif"></img>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem>
+                    <DialogTitle>⑥SNSのbioにリンクを貼る</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>リンクをコピーしてX, Instagramなどのbioに</p>
+                      <p>リンクを貼り付けて完了です！！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img className="rounded-2xl" src="/carousel/carousel_6_x.png"></img>
+                      <img  className="mt-4 rounded-2xl" src="/carousel/carousel_6_instagram.png"></img>
+                      <img  className="mt-4 rounded-2xl" src="/carousel/carousel_6_tiktok.png"></img>
+                    </div>
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </DialogContent>
+          </Dialog>
           <AlbumSearchCard
             albums={albums}
             activeId={activeId}
