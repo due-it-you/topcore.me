@@ -201,7 +201,12 @@ export default function CreateGridBody({ color, setColor }) {
               <Carousel className="m-4">
                 <CarouselContent>
                   <CarouselItem>
-                    <DialogTitle>使い方１</DialogTitle>
+                    <DialogTitle>
+                      <h1>①アルバムの検索</h1>
+                    </DialogTitle>
+                      <div className="mt-4">
+                        <img src="/carousel/carousel_1.gif"></img>
+                      </div>
                   </CarouselItem>
                   <CarouselItem>
                     <DialogTitle>使い方２</DialogTitle>
