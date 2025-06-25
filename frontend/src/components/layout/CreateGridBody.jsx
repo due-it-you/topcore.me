@@ -198,6 +198,7 @@ export default function CreateGridBody({ color, setColor }) {
         >
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent className="border border-[#646464] bg-[#151A1E] text-white lg:p-12">
+              <div className="text-2xl font-bold">使い方の説明</div>
               <Carousel className="lg:m-4">
                 <CarouselContent className="mt-4">
                   <CarouselItem>
@@ -229,7 +230,9 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle className="text-xl font-bold">④アルバムの位置の入れ替え</DialogTitle>
+                    <DialogTitle className="text-xl font-bold">
+                      ④アルバムの位置の入れ替え
+                    </DialogTitle>
                     <DialogDescription className="mt-2">
                       アルバムをドラッグして移動すると、 アルバムの位置を簡単に入れ替えられます！
                     </DialogDescription>
@@ -238,7 +241,9 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle className="text-lg font-bold">⑤プロフィールカードのリンク作成</DialogTitle>
+                    <DialogTitle className="text-lg font-bold">
+                      ⑤プロフィールカードのリンク作成
+                    </DialogTitle>
                     <DialogDescription className="mt-2">
                       アルバムの割り当てが完了したら「作成へ進む」ボタンから
                       プロフィールカードの作成が出来ます！
