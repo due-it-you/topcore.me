@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from './../../../../api/lib/apiClient';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/common/Header';
+import { Button } from '../button';
 
 export default function ProfileCard() {
   const params = useParams();
@@ -29,7 +30,11 @@ export default function ProfileCard() {
   return (
     <>
       <Layout color={bgColor}>
-        <Header />
+        <Header>
+          <a href="/">
+            <div className="text-white bg-[#20C997] p-2 rounded-xl font-bold ml-4 text-sm">自分も作ってみる</div>
+          </a>
+        </Header>
         <div className="flex min-h-screen items-center justify-center">
           <div className="aspect-square w-5/6 lg:w-110">
             <div className="grid grid-cols-3 grid-rows-3 gap-2">
