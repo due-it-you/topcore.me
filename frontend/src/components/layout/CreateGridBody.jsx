@@ -197,8 +197,8 @@ export default function CreateGridBody({ color, setColor }) {
           onDragEnd={handleDragEnd}
         >
           <Dialog open={open} onOpenChange={setOpen}>
-            <DialogContent className="border border-[#646464] bg-[#151A1E] p-8 text-white lg:p-12">
-              <Carousel className="m-4">
+            <DialogContent className="border border-[#646464] bg-[#151A1E] text-white lg:p-12">
+              <Carousel className="lg:m-4">
                 <CarouselContent>
                   <CarouselItem>
                     <DialogTitle>
