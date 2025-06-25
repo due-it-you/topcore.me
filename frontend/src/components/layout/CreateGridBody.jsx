@@ -1,6 +1,16 @@
 import { useState, useEffect } from 'react';
 import axios from './../../../api/lib/apiClient';
 import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import {
   DndContext,
   pointerWithin,
   KeyboardSensor,
@@ -31,6 +41,8 @@ export default function CreateGridBody({ color, setColor }) {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
   );
+  // shadcnのDialogの表示を制御するステート
+  const [open, setOpen] = useState(false);
   //プロフィールカードのリンクのためのslug
   const [slug, setSlug] = useState(null);
   // プロフィールカードの画像データ
@@ -62,6 +74,10 @@ export default function CreateGridBody({ color, setColor }) {
   ]);
   // [ユーザー名, 画像アイコン]の設定モーダル -> 生成されたリンクの表示モーダル のステップの管理
   const [step, setStep] = useState('form');
+
+  useEffect(() => {
+    setOpen(true);
+  }, []);
 
   useEffect(() => {
     // 全てのグリッドのマスにアルバムが割り当てられているかのチェック
@@ -173,6 +189,20 @@ export default function CreateGridBody({ color, setColor }) {
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogContent className="border border-[#646464] bg-[#151A1E] p-8 text-white lg:p-12">
+              <DialogHeader>
+                <DialogTitle>このサイトの使い方</DialogTitle>
+                <DialogDescription>
+                  ・アルバムを検索してドラッグ
+                  <br />
+                  ・グリッドにドロップ
+                  <br />
+                  ・プロフィールカードを生成してSNSでシェア
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
           <AlbumSearchCard
             albums={albums}
             activeId={activeId}
