@@ -222,7 +222,13 @@ export default function CreateGridBody({ color, setColor }) {
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <DialogTitle>使い方３</DialogTitle>
+                    <DialogTitle>③背景色の変更</DialogTitle>
+                    <DialogDescription className="mt-2">
+                      <p>プロフィールカードの背景色を好きに選択できます！</p>
+                    </DialogDescription>
+                    <div className="mt-4">
+                      <img src="/carousel/carousel_3.gif"></img>
+                    </div>
                   </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
