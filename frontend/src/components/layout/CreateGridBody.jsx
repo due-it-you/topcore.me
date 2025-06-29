@@ -66,7 +66,7 @@ export default function CreateGridBody({ color, setColor }) {
   const [isDragging, setIsDragging] = useState(false);
   // 検索機能における状態管理
   const [albums, setAlbums] = useState(null);
-  const [searchAlbumInput, setSearchAlbumInput] = useState(null);
+  const [searchAlbumInput, setSearchAlbumInput] = useState('');
   // グリッドのマスの状態管理
   const [assignedAlbums, setAssignedAlbums] = useState([
     { id: 'cell-0', src: null, alt: null, spotifyId: null },
@@ -93,6 +93,9 @@ export default function CreateGridBody({ color, setColor }) {
   }, [assignedAlbums]);
 
   async function onSearchClick() {
+    if (searchAlbumInput === '') {
+      return;
+    }
     const res = await axios.get('/albums/search', { params: { name: searchAlbumInput } });
     const albums = res.data.searchedAlbums;
     setAlbums(albums);
