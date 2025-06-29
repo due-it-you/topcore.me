@@ -1,4 +1,4 @@
-export default function Color({ className, color, setColor }) {
+export default function Color({ color, setColor }) {
   function onColorClick() {
     setColor(color);
   }
