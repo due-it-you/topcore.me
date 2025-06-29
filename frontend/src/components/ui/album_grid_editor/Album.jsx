@@ -1,6 +1,6 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import AlbumImage from '../album_search/AlbumImage';
+import AlbumImage from '../configure_profile_card/AlbumImage';
 
 export default function Album({ id, src, alt, spotifyId }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
