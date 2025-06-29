@@ -22,13 +22,13 @@ export default function AlbumSearchCard({
                 className="text-gray-400 data-[state=active]:bg-white data-[state=active]:text-black"
                 value="search"
               >
-                Search
+                検索
               </TabsTrigger>
               <TabsTrigger
                 className="text-gray-400 data-[state=active]:bg-white data-[state=active]:text-black"
                 value="settings"
               >
-                Settings
+                設定
               </TabsTrigger>
             </TabsList>
             <div className="h-4/5 w-full rounded-xl border border-[#2D2D2D] bg-[#1E1E1E] shadow-xl shadow-gray-900 md:mx-4 mt-4">
