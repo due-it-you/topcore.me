@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from './../../../../api/lib/apiClient';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/common/Header';
-import { Button } from '../button';
 
 export default function ProfileCard() {
   const params = useParams();
