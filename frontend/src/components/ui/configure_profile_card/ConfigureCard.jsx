@@ -1,3 +1,4 @@
+import GridRowsColumnsSlider from './profile_card_settings/GridRowsColumnsSlider';
 import SearchBar from './search_albums/SearchBar';
 import SearchResult from './search_albums/SearchResult';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -46,6 +47,9 @@ export default function ConfigureCard({
                     activeSpotifyId={activeSpotifyId}
                     albums={albums}
                   />
+                </TabsContent>
+                <TabsContent value="settings">
+                  <GridRowsColumnsSlider />
                 </TabsContent>
               </div>
             </div>
