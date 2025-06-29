@@ -1,8 +1,15 @@
-import AlbumImage from './AlbumImage';
-import Draggable from '../dnd/Draggable';
+import AlbumImage from '../AlbumImage';
+import Draggable from '../../dnd/Draggable';
 import { DragOverlay } from '@dnd-kit/core';
 
-export default function SearchResult({ albums, isDragging, activeId, activeAlt, activeSrc, activeSpotifyId }) {
+export default function SearchResult({
+  albums,
+  isDragging,
+  activeId,
+  activeAlt,
+  activeSrc,
+  activeSpotifyId,
+}) {
   return (
     <>
       <div className="h-7/8 overflow-y-scroll">
