@@ -18,7 +18,7 @@ import {
   useSensors,
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
-import ConfigureCard from '../ui/album_search/ConfigureCard';
+import ConfigureCard from '../ui/configure_profile_card/ConfigureCard';
 import AlbumGridEditor from '../ui/album_grid_editor/AlbumGridEditor';
 
 export default function CreateGridBody({ color, setColor }) {
