@@ -2,7 +2,7 @@ import SearchBar from './SearchBar';
 import SearchResult from './SearchResult';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-export default function AlbumSearchCard({
+export default function ConfigureCard({
   onSearchClick,
   setSearchAlbumInput,
   albums,

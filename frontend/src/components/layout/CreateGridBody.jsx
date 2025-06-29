@@ -18,7 +18,7 @@ import {
   useSensors,
 } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
-import AlbumSearchCard from '../ui/album_search/AlbumSearchCard';
+import ConfigureCard from '../ui/album_search/ConfigureCard';
 import AlbumGridEditor from '../ui/album_grid_editor/AlbumGridEditor';
 
 export default function CreateGridBody({ color, setColor }) {
@@ -266,7 +266,7 @@ export default function CreateGridBody({ color, setColor }) {
               </Carousel>
             </DialogContent>
           </Dialog>
-          <AlbumSearchCard
+          <ConfigureCard
             albums={albums}
             activeId={activeId}
             activeAlt={activeAlt}
